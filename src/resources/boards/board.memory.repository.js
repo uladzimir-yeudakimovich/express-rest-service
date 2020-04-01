@@ -1,3 +1,5 @@
+// const allTasks = require('../tasks/task.memory.repository');
+
 const allBoards = [
   {
     id: '1',
@@ -79,6 +81,13 @@ const putBoard = async (id, board) => {
 };
 
 const deleteBoard = async id => {
+  // allTasks.filter((item, index) => {
+  //   if (item.id === id) {
+  //     allTasks.splice(index, 1);
+  //   } else {
+  //     return item;
+  //   }
+  // });
   return allBoards.filter((item, index) => {
     if (item.id === id) {
       allBoards.splice(index, 1);
