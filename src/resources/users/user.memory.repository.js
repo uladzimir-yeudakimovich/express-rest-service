@@ -27,4 +27,30 @@ const getUser = async id => {
   return allUsers.filter(item => item.id === id);
 };
 
-module.exports = { getAll, getUser };
+const postUser = async user => {
+  user.id = (allUsers.length + 1).toString();
+  allUsers.push(user);
+  return user;
+};
+
+const putUser = async (id, user) => {
+  const updateUser = allUsers.filter((item, index) => {
+    if (item.id === id) {
+      user.id = id;
+      item = user;
+      allUsers[index] = user;
+    }
+  });
+  return updateUser;
+};
+
+const deleteUser = async id => {
+  return allUsers.filter((item, index) => {
+    if (item.id !== id) {
+      allUsers.slice(index);
+      return item;
+    }
+  });
+};
+
+module.exports = { getAll, getUser, postUser, putUser, deleteUser };

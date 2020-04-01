@@ -12,4 +12,19 @@ router.route('/:id').get(async (req, res) => {
   res.json(user.map(User.toResponse)[0]);
 });
 
+router.route('/').post(async (req, res) => {
+  const user = await usersService.postUser(req.body);
+  res.json(User.toResponse(user));
+});
+
+router.route('/:id').put(async (req, res) => {
+  const user = await usersService.putUser(req.params.id, req.body);
+  res.json(user.map(User.toResponse)[0]);
+});
+
+router.route('/:id').delete(async (req, res) => {
+  const user = await usersService.deleteUser(req.params.id);
+  res.json(user.map(User.toResponse));
+});
+
 module.exports = router;
