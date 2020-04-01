@@ -46,8 +46,9 @@ const putUser = async (id, user) => {
 
 const deleteUser = async id => {
   return allUsers.filter((item, index) => {
-    if (item.id !== id) {
-      allUsers.slice(index);
+    if (item.id === id) {
+      allUsers.splice(index, 1);
+    } else {
       return item;
     }
   });

@@ -13,7 +13,7 @@ router.route('/:id').get(async (req, res) => {
 });
 
 router.route('/').post(async (req, res) => {
-  const task = await taskService.postTask(req.body);
+  const task = await taskService.postTask(req.body, req.baseUrl.split('/')[2]);
   res.json(Task.toResponse(task));
 });
 

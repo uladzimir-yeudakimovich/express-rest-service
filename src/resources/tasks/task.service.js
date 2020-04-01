@@ -4,7 +4,7 @@ const getAll = () => taskRepo.getAll();
 
 const getTask = id => taskRepo.getTask(id);
 
-const postTask = task => taskRepo.postTask(task);
+const postTask = (task, borderId) => taskRepo.postTask(task, borderId);
 
 const putTask = (id, task) => taskRepo.putTask(id, task);
 

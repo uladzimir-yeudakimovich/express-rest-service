@@ -19,8 +19,9 @@ const getTask = async id => {
   return allTasks.filter(item => item.id === id);
 };
 
-const postTask = async task => {
+const postTask = async (task, borderId) => {
   task.id = (allTasks.length + 1).toString();
+  task.boardId = borderId;
   allTasks.push(task);
   return task;
 };
@@ -38,8 +39,9 @@ const putTask = async (id, task) => {
 
 const deleteTask = async id => {
   return allTasks.filter((item, index) => {
-    if (item.id !== id) {
-      allTasks.slice(index);
+    if (item.id === id) {
+      allTasks.splice(index, 1);
+    } else {
       return item;
     }
   });

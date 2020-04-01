@@ -80,8 +80,9 @@ const putBoard = async (id, board) => {
 
 const deleteBoard = async id => {
   return allBoards.filter((item, index) => {
-    if (item.id !== id) {
-      allBoards.slice(index);
+    if (item.id === id) {
+      allBoards.splice(index, 1);
+    } else {
       return item;
     }
   });
