@@ -51,17 +51,17 @@ const getTask = async id => {
   return allTasks.filter(item => item.id === id);
 };
 
-const postTask = async (task, boardId) => {
+const postTask = async (boardId, task) => {
   task.id = uuid();
   task.boardId = boardId;
   allTasks.push(task);
-  console.log(task);
   return task;
 };
 
-const putTask = async (id, task) => {
+const putTask = async (boardId, id, task) => {
   return allTasks.filter((item, index) => {
     if (item.id === id) {
+      task.boardId = boardId;
       allTasks[index] = task;
     }
   });

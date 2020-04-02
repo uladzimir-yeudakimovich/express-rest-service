@@ -27,7 +27,13 @@ const getAll = async () => {
 };
 
 const getUser = async id => {
-  return allUsers.filter(item => item.id === id);
+  let user;
+  for (let i = 0; i < allUsers.length; i++) {
+    if (allUsers[i].id === id) {
+      user = allUsers[i];
+    }
+  }
+  return [user];
 };
 
 const postUser = async user => {
@@ -39,29 +45,32 @@ const postUser = async user => {
 const putUser = async (id, user) => {
   return allUsers.filter((item, index) => {
     if (item.id === id) {
+      user.id = id;
       allUsers[index] = user;
+      return user;
     }
   });
 };
 
 const deleteUser = async id => {
   updateTasks(id);
-  return allUsers.filter((item, index) => {
+  allUsers.filter((item, index) => {
     if (item.id === id) {
       allUsers.splice(index, 1);
-    } else {
-      return item;
     }
+    return item;
   });
+  return allUsers;
 };
 
 const updateTasks = async id => {
-  return allTasks.filter(item => {
+  allTasks.filter(item => {
     if (item.userId === id) {
       item.userId = null;
     }
     return item;
   });
+  return allTasks;
 };
 
 module.exports = { getAll, getUser, postUser, putUser, deleteUser };
