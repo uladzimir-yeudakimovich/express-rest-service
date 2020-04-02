@@ -20,6 +20,9 @@ class Task {
   }
 
   static toResponse(task) {
+    if (!task) {
+      return;
+    }
     const { id, title, order, description, userId, boardId, columnId } = task;
     return { id, title, order, description, userId, boardId, columnId };
   }
