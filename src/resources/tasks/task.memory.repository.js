@@ -3,7 +3,6 @@ const uuid = require('uuid');
 const allTasks = [
   {
     id: '1',
-    name: 'Create service',
     title: 'Service',
     order: '2',
     description: 'REST API Service',
@@ -13,7 +12,6 @@ const allTasks = [
   },
   {
     id: '2',
-    name: 'Create service',
     title: 'Service',
     order: '2',
     description: 'REST API Service',
@@ -23,7 +21,6 @@ const allTasks = [
   },
   {
     id: '3',
-    name: 'Create service',
     title: 'Service',
     order: '2',
     description: 'REST API Service',
@@ -33,7 +30,6 @@ const allTasks = [
   },
   {
     id: '4',
-    name: 'Create service',
     title: 'Service',
     order: '2',
     description: 'REST API Service',
@@ -48,7 +44,13 @@ const getAll = async () => {
 };
 
 const getTask = async id => {
-  return allTasks.filter(item => item.id === id);
+  let user;
+  for (let i = 0; i < allTasks.length; i++) {
+    if (allTasks[i].id === id) {
+      user = allTasks[i];
+    }
+  }
+  return [user];
 };
 
 const postTask = async (boardId, task) => {
@@ -61,8 +63,10 @@ const postTask = async (boardId, task) => {
 const putTask = async (boardId, id, task) => {
   return allTasks.filter((item, index) => {
     if (item.id === id) {
+      task.id = id;
       task.boardId = boardId;
       allTasks[index] = task;
+      return task;
     }
   });
 };
