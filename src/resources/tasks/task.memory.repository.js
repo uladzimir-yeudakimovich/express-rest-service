@@ -72,12 +72,13 @@ const putTask = async (boardId, id, task) => {
 };
 
 const deleteTask = async id => {
-  return allTasks.filter((item, index) => {
+  allTasks.filter((item, index) => {
     if (item.id === id) {
       allTasks.splice(index, 1);
     }
     return item;
   });
+  return allTasks;
 };
 
 module.exports = { allTasks, getAll, getTask, postTask, putTask, deleteTask };

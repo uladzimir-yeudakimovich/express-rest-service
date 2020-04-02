@@ -61,7 +61,13 @@ const getAll = async () => {
 };
 
 const getBoard = async id => {
-  return allBoards.filter(item => item.id === id);
+  let board;
+  for (let i = 0; i < allBoards.length; i++) {
+    if (allBoards[i].id === id) {
+      board = allBoards[i];
+    }
+  }
+  return [board];
 };
 
 const postBoard = async board => {
@@ -71,32 +77,34 @@ const postBoard = async board => {
 };
 
 const putBoard = async (id, board) => {
-  const updateUser = allBoards.filter((item, index) => {
+  return allBoards.filter((item, index) => {
     if (item.id === id) {
+      board.id = id;
       allBoards[index] = board;
+      return board;
     }
   });
-  return updateUser;
 };
 
 const deleteBoard = async id => {
   deleteTasks(id);
-  return allBoards.filter((item, index) => {
+  allBoards.filter((item, index) => {
     if (item.id === id) {
       allBoards.splice(index, 1);
-    } else {
-      return item;
     }
+    return item;
   });
+  return allBoards;
 };
 
 const deleteTasks = async id => {
-  return allTasks.filter((item, index) => {
+  allTasks.filter((item, index) => {
     if (item.boardId === id) {
       allTasks.splice(index, 1);
     }
     return item;
   });
+  return allTasks;
 };
 
 module.exports = { getAll, getBoard, postBoard, putBoard, deleteBoard };
