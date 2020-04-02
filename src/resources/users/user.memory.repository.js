@@ -1,3 +1,4 @@
+const uuid = require('uuid');
 const { allTasks } = require('../tasks/task.memory.repository');
 
 const allUsers = [
@@ -30,35 +31,36 @@ const getUser = async id => {
 };
 
 const postUser = async user => {
-  user.id = (allUsers.length + 1).toString();
+  user.id = uuid();
   allUsers.push(user);
   return user;
 };
 
 const putUser = async (id, user) => {
-  const updateUser = allUsers.filter((item, index) => {
+  return allUsers.filter((item, index) => {
     if (item.id === id) {
-      user.id = id;
-      item = user;
       allUsers[index] = user;
     }
   });
-  return updateUser;
 };
 
 const deleteUser = async id => {
-  allTasks.filter(item => {
-    if (item.userId === id) {
-      item.userId = null;
-    }
-    return item;
-  });
+  updateTasks(id);
   return allUsers.filter((item, index) => {
     if (item.id === id) {
       allUsers.splice(index, 1);
     } else {
       return item;
     }
+  });
+};
+
+const updateTasks = async id => {
+  return allTasks.filter(item => {
+    if (item.userId === id) {
+      item.userId = null;
+    }
+    return item;
   });
 };
 

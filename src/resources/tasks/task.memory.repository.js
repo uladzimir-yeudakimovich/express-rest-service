@@ -1,3 +1,5 @@
+const uuid = require('uuid');
+
 const allTasks = [
   {
     id: '1',
@@ -50,30 +52,27 @@ const getTask = async id => {
 };
 
 const postTask = async (task, boardId) => {
-  task.id = (allTasks.length + 1).toString();
+  task.id = uuid();
   task.boardId = boardId;
   allTasks.push(task);
+  console.log(task);
   return task;
 };
 
 const putTask = async (id, task) => {
-  const updateUser = allTasks.filter((item, index) => {
+  return allTasks.filter((item, index) => {
     if (item.id === id) {
-      task.id = id;
-      item = task;
       allTasks[index] = task;
     }
   });
-  return updateUser;
 };
 
 const deleteTask = async id => {
   return allTasks.filter((item, index) => {
     if (item.id === id) {
       allTasks.splice(index, 1);
-    } else {
-      return item;
     }
+    return item;
   });
 };
 

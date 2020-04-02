@@ -1,3 +1,4 @@
+const uuid = require('uuid');
 const { allTasks } = require('../tasks/task.memory.repository');
 
 const allBoards = [
@@ -64,7 +65,7 @@ const getBoard = async id => {
 };
 
 const postBoard = async board => {
-  board.id = (allBoards.length + 1).toString();
+  board.id = uuid();
   allBoards.push(board);
   return board;
 };
@@ -72,8 +73,6 @@ const postBoard = async board => {
 const putBoard = async (id, board) => {
   const updateUser = allBoards.filter((item, index) => {
     if (item.id === id) {
-      board.id = id;
-      item = board;
       allBoards[index] = board;
     }
   });
@@ -81,19 +80,22 @@ const putBoard = async (id, board) => {
 };
 
 const deleteBoard = async id => {
-  allTasks.filter((item, index) => {
-    if (item.boardId === id) {
-      allTasks.splice(index, 1);
-    } else {
-      return item;
-    }
-  });
+  deleteTasks(id);
   return allBoards.filter((item, index) => {
     if (item.id === id) {
       allBoards.splice(index, 1);
     } else {
       return item;
     }
+  });
+};
+
+const deleteTasks = async id => {
+  return allTasks.filter((item, index) => {
+    if (item.boardId === id) {
+      allTasks.splice(index, 1);
+    }
+    return item;
   });
 };
 
