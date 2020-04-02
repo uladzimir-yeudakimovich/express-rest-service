@@ -1,3 +1,5 @@
+const { allTasks } = require('../tasks/task.memory.repository');
+
 const allUsers = [
   {
     id: '1',
@@ -45,6 +47,12 @@ const putUser = async (id, user) => {
 };
 
 const deleteUser = async id => {
+  allTasks.filter(item => {
+    if (item.userId === id) {
+      item.userId = null;
+    }
+    return item;
+  });
   return allUsers.filter((item, index) => {
     if (item.id === id) {
       allUsers.splice(index, 1);
