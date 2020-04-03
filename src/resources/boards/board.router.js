@@ -23,13 +23,19 @@ router.route('/:id').put(async (req, res) => {
 });
 
 router.route('/:id').delete(async (req, res) => {
-  const board = await boardService.deleteBoard(req.params.id);
-  if (board[0].message) {
-    console.log(board[0].message);
-    res.sendStatus(404);
-  } else {
-    res.json(board.map(Board.toResponse));
-  }
+  boardService
+    .deleteBoard(req.params.id)
+    .then(board => {
+      if (board) {
+        res.json(board.map(Board.toResponse));
+        res.status(200);
+      } else {
+        res.status(404);
+      }
+    })
+    .catch(() => {
+      res.status(404);
+    });
 });
 
 module.exports = router;

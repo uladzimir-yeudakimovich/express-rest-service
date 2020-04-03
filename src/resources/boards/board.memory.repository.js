@@ -88,28 +88,23 @@ const putBoard = async (id, board) => {
 
 const deleteBoard = async id => {
   deleteTasks(id);
-  let count = 0;
   allBoards.filter((item, index) => {
     if (item.id === id) {
-      count += 1;
       allBoards.splice(index, 1);
-      return count;
     }
     return item;
   });
-  return count !== 0 ? allBoards : [{ message: `id ${id} Not found!` }];
+  return allBoards;
 };
 
 const deleteTasks = async id => {
-  const newAllTasks = allTasks.filter((item, index) => {
+  allTasks.filter((item, index) => {
     if (item.boardId === id) {
       allTasks.splice(index, 1);
     }
     return item;
   });
-  return allTasks.length !== newAllTasks.length
-    ? allTasks
-    : { message: 'Not found' };
+  return allTasks;
 };
 
 module.exports = { getAll, getBoard, postBoard, putBoard, deleteBoard };
