@@ -39,18 +39,12 @@ const allTasks = [
   }
 ];
 
-const getAll = async () => {
-  return allTasks;
+const getAll = async boardId => {
+  return allTasks.filter(item => item.boardId === boardId);
 };
 
 const getTask = async id => {
-  let user;
-  for (let i = 0; i < allTasks.length; i++) {
-    if (allTasks[i].id === id) {
-      user = allTasks[i];
-    }
-  }
-  return [user];
+  return allTasks.find(element => element.id === id);
 };
 
 const postTask = async (boardId, task) => {

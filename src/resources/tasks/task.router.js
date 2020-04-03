@@ -3,13 +3,13 @@ const Task = require('./task.model');
 const taskService = require('./task.service');
 
 router.route('/').get(async (req, res) => {
-  const tasks = await taskService.getAll();
+  const tasks = await taskService.getAll(req.baseUrl.split('/')[2]);
   res.json(tasks.map(Task.toResponse));
 });
 
 router.route('/:id').get(async (req, res) => {
   const task = await taskService.getTask(req.params.id);
-  res.json(task.map(Task.toResponse)[0]);
+  res.json(Task.toResponse(task));
 });
 
 router.route('/').post(async (req, res) => {
