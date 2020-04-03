@@ -61,13 +61,7 @@ const getAll = async () => {
 };
 
 const getBoard = async id => {
-  let board;
-  for (let i = 0; i < allBoards.length; i++) {
-    if (allBoards[i].id === id) {
-      board = allBoards[i];
-    }
-  }
-  return [board];
+  return allBoards.find(element => element.id === id);
 };
 
 const postBoard = async board => {

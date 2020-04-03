@@ -9,7 +9,7 @@ router.route('/').get(async (req, res) => {
 
 router.route('/:id').get(async (req, res) => {
   const board = await boardService.getBoard(req.params.id);
-  res.json(board.map(Board.toResponse)[0]);
+  res.json(Board.toResponse(board));
 });
 
 router.route('/').post(async (req, res) => {

@@ -27,32 +27,36 @@ const getAll = async () => {
 };
 
 const getUser = async id => {
-  let user;
-  for (let i = 0; i < allUsers.length; i++) {
-    if (allUsers[i].id === id) {
-      user = allUsers[i];
-    }
-  }
-  return [user];
+  return allUsers.find(element => element.id === id);
 };
 
 const postUser = async user => {
+  if (!user.login || !user.password) {
+    return;
+  }
   user.id = uuid();
   allUsers.push(user);
   return user;
 };
 
 const putUser = async (id, user) => {
-  return allUsers.filter((item, index) => {
+  if (!user.login || !user.password) {
+    return;
+  }
+  allUsers.filter((item, index) => {
     if (item.id === id) {
       user.id = id;
       allUsers[index] = user;
-      return user;
     }
   });
+  return allUsers.find(element => element.id === id);
 };
 
 const deleteUser = async id => {
+  const userToDelete = allUsers.find(element => element.id === id);
+  if (!userToDelete) {
+    return;
+  }
   updateTasks(id);
   allUsers.filter((item, index) => {
     if (item.id === id) {
