@@ -88,6 +88,10 @@ const putBoard = async (id, board) => {
 
 const deleteBoard = async id => {
   deleteTasks(id);
+  const boardToDelete = allBoards.find(element => element.id === id);
+  if (!boardToDelete) {
+    return;
+  }
   allBoards.filter((item, index) => {
     if (item.id === id) {
       allBoards.splice(index, 1);
@@ -98,6 +102,10 @@ const deleteBoard = async id => {
 };
 
 const deleteTasks = async id => {
+  const taskToDelete = allTasks.find(element => element.id === id);
+  if (!taskToDelete) {
+    return;
+  }
   allTasks.filter((item, index) => {
     if (item.boardId === id) {
       allTasks.splice(index, 1);

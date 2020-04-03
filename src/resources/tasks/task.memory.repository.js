@@ -72,6 +72,10 @@ const putTask = async (boardId, id, task) => {
 };
 
 const deleteTask = async id => {
+  const taskToDelete = allTasks.find(element => element.id === id);
+  if (!taskToDelete) {
+    return;
+  }
   allTasks.filter((item, index) => {
     if (item.id === id) {
       allTasks.splice(index, 1);

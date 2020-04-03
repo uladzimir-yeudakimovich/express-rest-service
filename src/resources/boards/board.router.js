@@ -26,15 +26,21 @@ router.route('/:id').delete(async (req, res) => {
   boardService
     .deleteBoard(req.params.id)
     .then(board => {
-      if (board) {
-        res.json(board.map(Board.toResponse));
-        res.status(200);
+      if (!board) {
+        res
+          .status(404)
+          .send('Board not found')
+          .end();
       } else {
-        res.status(404);
+        res.json(board.map(Board.toResponse));
+        // res
+        //   .status(204)
+        //   .send('The board has been deleted')
+        //   .end();
       }
     })
     .catch(() => {
-      res.status(404);
+      res.status(400).end();
     });
 });
 
