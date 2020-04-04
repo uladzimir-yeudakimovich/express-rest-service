@@ -68,15 +68,12 @@ const deleteBoard = async id => {
 };
 
 const deleteTasks = async id => {
-  allTasks.forEach(item => {
-    if (item.boardId === id) {
-      item.id = '';
-      item.userId = '';
-      item.boardId = '';
-      item.title = '';
-      item.description = '';
+  for (let i = 0; i < allTasks.length; i++) {
+    if (allTasks[i].boardId === id) {
+      allTasks.splice(i, 1);
+      i--;
     }
-  });
+  }
 };
 
 module.exports = { getAll, getBoard, postBoard, putBoard, deleteBoard };
