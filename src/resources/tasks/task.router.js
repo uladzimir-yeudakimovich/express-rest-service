@@ -12,19 +12,12 @@ router.route('/:id').get(async (req, res) => {
     .getTask(req.params.id)
     .then(task => {
       if (!task) {
-        res
-          .status(404)
-          .send('Task not found')
-          .end();
-      } else {
-        res.json(Task.toResponse(task));
+        res.status(404).send('Task not found');
       }
+      res.json(Task.toResponse(task));
     })
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request');
     });
 });
 
@@ -33,19 +26,12 @@ router.route('/').post(async (req, res) => {
     .postTask(req.baseUrl.split('/')[2], req.body)
     .then(task => {
       if (!task) {
-        res
-          .status(400)
-          .send('Bad request')
-          .end();
-      } else {
-        res.json(Task.toResponse(task));
+        res.status(400).send('Bad request');
       }
+      res.json(Task.toResponse(task));
     })
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request');
     });
 });
 
@@ -54,19 +40,12 @@ router.route('/:id').put(async (req, res) => {
     .putTask(req.params.id, req.body)
     .then(task => {
       if (!task) {
-        res
-          .status(400)
-          .send('Task not found')
-          .end();
-      } else {
-        res.json(Task.toResponse(task));
+        res.status(400).send('Task not found');
       }
+      res.json(Task.toResponse(task));
     })
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request');
     });
 });
 
@@ -75,16 +54,12 @@ router.route('/:id').delete(async (req, res) => {
     .deleteTask(req.params.id)
     .then(task => {
       if (!task) {
-        res
-          .status(404)
-          .send('Task not found')
-          .end();
-      } else {
-        res.json(task.map(Task.toResponse));
+        res.status(404).send('Task not found');
       }
+      res.json(task.map(Task.toResponse));
     })
     .catch(() => {
-      res.status(400).end();
+      res.status(400).send('Bad request');
     });
 });
 

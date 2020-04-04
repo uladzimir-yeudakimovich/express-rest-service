@@ -13,19 +13,12 @@ router.route('/:id').get(async (req, res) => {
     .getBoard(req.params.id)
     .then(board => {
       if (!board) {
-        res
-          .status(404)
-          .send('Board not found')
-          .end();
-      } else {
-        res.json(Board.toResponse(board));
+        res.status(404).send('Board not found');
       }
+      res.json(Board.toResponse(board));
     })
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request');
     });
 });
 
@@ -34,19 +27,12 @@ router.route('/').post(async (req, res) => {
     .postBoard(req.body)
     .then(board => {
       if (!board) {
-        res
-          .status(400)
-          .send('Bad request')
-          .end();
-      } else {
-        res.json(Board.toResponse(board));
+        res.status(400).send('Bad request');
       }
+      res.json(Board.toResponse(board));
     })
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request');
     });
 });
 
@@ -55,19 +41,12 @@ router.route('/:id').put(async (req, res) => {
     .putBoard(req.params.id, req.body)
     .then(board => {
       if (!board) {
-        res
-          .status(400)
-          .send('Bad request')
-          .end();
-      } else {
-        res.json(Board.toResponse(board));
+        res.status(400).send('Bad request');
       }
+      res.json(Board.toResponse(board));
     })
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request');
     });
 });
 
@@ -76,19 +55,12 @@ router.route('/:id').delete(async (req, res) => {
     .deleteBoard(req.params.id)
     .then(board => {
       if (!board) {
-        res
-          .status(404)
-          .send('Board not found')
-          .end();
-      } else {
-        res.json(board.map(Board.toResponse));
+        res.status(404).send('Board not found');
       }
+      res.json(board.map(Board.toResponse));
     })
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request');
     });
 });
 

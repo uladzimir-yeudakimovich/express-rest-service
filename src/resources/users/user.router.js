@@ -12,19 +12,12 @@ router.route('/:id').get(async (req, res) => {
     .getUser(req.params.id)
     .then(user => {
       if (!user) {
-        res
-          .status(404)
-          .send('User not found')
-          .end();
-      } else {
-        res.json(User.toResponse(user));
+        res.status(404).send('User not found');
       }
+      res.json(User.toResponse(user));
     })
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request');
     });
 });
 
@@ -33,19 +26,12 @@ router.route('/').post(async (req, res) => {
     .postUser(req.body)
     .then(user => {
       if (!user) {
-        res
-          .status(400)
-          .send('Bad request')
-          .end();
-      } else {
-        res.json(User.toResponse(user));
+        res.status(400).send('Bad request');
       }
+      res.json(User.toResponse(user));
     })
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request');
     });
 });
 
@@ -54,19 +40,12 @@ router.route('/:id').put(async (req, res) => {
     .putUser(req.params.id, req.body)
     .then(user => {
       if (!user) {
-        res
-          .status(400)
-          .send('Bad request')
-          .end();
-      } else {
-        res.json(User.toResponse(user));
+        res.status(400).send('Bad request');
       }
+      res.json(User.toResponse(user));
     })
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request');
     });
 });
 
@@ -75,19 +54,12 @@ router.route('/:id').delete(async (req, res) => {
     .deleteUser(req.params.id)
     .then(user => {
       if (!user) {
-        res
-          .status(404)
-          .send('User not found')
-          .end();
-      } else {
-        res.json(user.map(User.toResponse));
+        res.status(404).send('User not found');
       }
+      res.json(user.map(User.toResponse));
     })
     .catch(() => {
-      res
-        .status(400)
-        .send('Bad request')
-        .end();
+      res.status(400).send('Bad request');
     });
 });
 
