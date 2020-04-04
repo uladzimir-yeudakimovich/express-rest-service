@@ -65,19 +65,25 @@ const getBoard = async id => {
 };
 
 const postBoard = async board => {
+  if (!board.title || !board.columns) {
+    return;
+  }
   board.id = uuid();
   allBoards.push(board);
   return board;
 };
 
 const putBoard = async (id, board) => {
-  return allBoards.filter((item, index) => {
+  if (!board.title || !board.columns) {
+    return;
+  }
+  allBoards.filter((item, index) => {
     if (item.id === id) {
       board.id = id;
       allBoards[index] = board;
-      return board;
     }
   });
+  return allBoards.find(element => element.id === id);
 };
 
 const deleteBoard = async id => {

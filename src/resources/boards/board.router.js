@@ -8,18 +8,66 @@ router.route('/').get(async (req, res) => {
 });
 
 router.route('/:id').get(async (req, res) => {
-  const board = await boardService.getBoard(req.params.id);
-  res.json(Board.toResponse(board));
+  boardService
+    .getBoard(req.params.id)
+    .then(board => {
+      if (!board) {
+        res
+          .status(404)
+          .send('Board not found')
+          .end();
+      } else {
+        res.json(Board.toResponse(board));
+      }
+    })
+    .catch(() => {
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
+    });
 });
 
 router.route('/').post(async (req, res) => {
-  const board = await boardService.postBoard(req.body);
-  res.json(Board.toResponse(board));
+  boardService
+    .postBoard(req.body)
+    .then(board => {
+      if (!board) {
+        res
+          .status(400)
+          .send('Bad request')
+          .end();
+      } else {
+        res.json(Board.toResponse(board));
+      }
+    })
+    .catch(() => {
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
+    });
 });
 
 router.route('/:id').put(async (req, res) => {
-  const board = await boardService.putBoard(req.params.id, req.body);
-  res.json(board.map(Board.toResponse)[0]);
+  boardService
+    .putBoard(req.params.id, req.body)
+    .then(board => {
+      if (!board) {
+        res
+          .status(400)
+          .send('Bad request')
+          .end();
+      } else {
+        res.json(Board.toResponse(board));
+      }
+    })
+    .catch(() => {
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
+    });
 });
 
 router.route('/:id').delete(async (req, res) => {
@@ -33,14 +81,13 @@ router.route('/:id').delete(async (req, res) => {
           .end();
       } else {
         res.json(board.map(Board.toResponse));
-        // res
-        //   .status(204)
-        //   .send('The board has been deleted')
-        //   .end();
       }
     })
     .catch(() => {
-      res.status(400).end();
+      res
+        .status(400)
+        .send('Bad request')
+        .end();
     });
 });
 
