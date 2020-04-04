@@ -1,28 +1,55 @@
 const uuid = require('uuid');
 
 const { allTasks } = require('../tasks/task.memory.repository');
-const Column = require('../columns/column.model');
 
 const allBoards = [
   {
     id: '1',
     title: 'Project1',
-    columns: [
-      new Column(uuid(), 'to-do', '1'),
-      new Column(uuid(), 'development', '2'),
-      new Column(uuid(), 'test', '3'),
-      new Column(uuid(), 'done', '4')
-    ]
+    {
+      id: '1',
+      title: 'to-do',
+      order: '1'
+    },
+    {
+      id: '2',
+      title: 'development',
+      order: '2'
+    },
+    {
+      id: '3',
+      title: 'test',
+      order: '3'
+    },
+    {
+      id: '4',
+      title: 'done',
+      order: '4'
+    }
   },
   {
     id: '2',
     title: 'Project2',
-    columns: [
-      new Column(uuid(), 'to-do', '1'),
-      new Column(uuid(), 'development', '2'),
-      new Column(uuid(), 'test', '3'),
-      new Column(uuid(), 'done', '4')
-    ]
+    {
+      id: '1',
+      title: 'to-do',
+      order: '1'
+    },
+    {
+      id: '2',
+      title: 'development',
+      order: '2'
+    },
+    {
+      id: '3',
+      title: 'test',
+      order: '3'
+    },
+    {
+      id: '4',
+      title: 'done',
+      order: '4'
+    }
   }
 ];
 
