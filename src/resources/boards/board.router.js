@@ -11,12 +11,11 @@ router.route('/').get(async (req, res) => {
 router.route('/:id').get(async (req, res) => {
   boardService
     .getBoard(req.params.id)
-    .then(board => {
-      if (!board) {
-        res.status(404).send('Board not found');
-      }
-      res.json(Board.toResponse(board));
-    })
+    .then(board =>
+      !board
+        ? res.status(404).send('Board not found')
+        : res.json(Board.toResponse(board))
+    )
     .catch(() => {
       res.status(400).send('Bad request');
     });
@@ -25,12 +24,11 @@ router.route('/:id').get(async (req, res) => {
 router.route('/').post(async (req, res) => {
   boardService
     .postBoard(req.body)
-    .then(board => {
-      if (!board) {
-        res.status(400).send('Bad request');
-      }
-      res.json(Board.toResponse(board));
-    })
+    .then(board =>
+      !board
+        ? res.status(404).send('Board not found')
+        : res.json(Board.toResponse(board))
+    )
     .catch(() => {
       res.status(400).send('Bad request');
     });
@@ -39,12 +37,11 @@ router.route('/').post(async (req, res) => {
 router.route('/:id').put(async (req, res) => {
   boardService
     .putBoard(req.params.id, req.body)
-    .then(board => {
-      if (!board) {
-        res.status(400).send('Bad request');
-      }
-      res.json(Board.toResponse(board));
-    })
+    .then(board =>
+      !board
+        ? res.status(404).send('Board not found')
+        : res.json(Board.toResponse(board))
+    )
     .catch(() => {
       res.status(400).send('Bad request');
     });
@@ -53,12 +50,11 @@ router.route('/:id').put(async (req, res) => {
 router.route('/:id').delete(async (req, res) => {
   boardService
     .deleteBoard(req.params.id)
-    .then(board => {
-      if (!board) {
-        res.status(404).send('Board not found');
-      }
-      res.json(board.map(Board.toResponse));
-    })
+    .then(board =>
+      !board
+        ? res.status(404).send('Board not found')
+        : res.json(board.map(Board.toResponse))
+    )
     .catch(() => {
       res.status(400).send('Bad request');
     });

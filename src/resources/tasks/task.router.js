@@ -10,12 +10,11 @@ router.route('/').get(async (req, res) => {
 router.route('/:id').get(async (req, res) => {
   taskService
     .getTask(req.params.id)
-    .then(task => {
-      if (!task) {
-        res.status(404).send('Task not found');
-      }
-      res.json(Task.toResponse(task));
-    })
+    .then(task =>
+      !task
+        ? res.status(404).send('Task not found')
+        : res.json(Task.toResponse(task))
+    )
     .catch(() => {
       res.status(400).send('Bad request');
     });
@@ -24,12 +23,11 @@ router.route('/:id').get(async (req, res) => {
 router.route('/').post(async (req, res) => {
   taskService
     .postTask(req.baseUrl.split('/')[2], req.body)
-    .then(task => {
-      if (!task) {
-        res.status(400).send('Bad request');
-      }
-      res.json(Task.toResponse(task));
-    })
+    .then(task =>
+      !task
+        ? res.status(404).send('Task not found')
+        : res.json(Task.toResponse(task))
+    )
     .catch(() => {
       res.status(400).send('Bad request');
     });
@@ -38,12 +36,11 @@ router.route('/').post(async (req, res) => {
 router.route('/:id').put(async (req, res) => {
   taskService
     .putTask(req.params.id, req.body)
-    .then(task => {
-      if (!task) {
-        res.status(400).send('Task not found');
-      }
-      res.json(Task.toResponse(task));
-    })
+    .then(task =>
+      !task
+        ? res.status(404).send('Task not found')
+        : res.json(Task.toResponse(task))
+    )
     .catch(() => {
       res.status(400).send('Bad request');
     });
@@ -52,12 +49,11 @@ router.route('/:id').put(async (req, res) => {
 router.route('/:id').delete(async (req, res) => {
   taskService
     .deleteTask(req.params.id)
-    .then(task => {
-      if (!task) {
-        res.status(404).send('Task not found');
-      }
-      res.json(task.map(Task.toResponse));
-    })
+    .then(task =>
+      !task
+        ? res.status(404).send('Task not found')
+        : res.json(task.map(Task.toResponse))
+    )
     .catch(() => {
       res.status(400).send('Bad request');
     });
