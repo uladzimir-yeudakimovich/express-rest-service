@@ -1,4 +1,5 @@
 const uuid = require('uuid');
+
 const { allTasks } = require('../tasks/task.memory.repository');
 
 const allUsers = [
@@ -27,7 +28,11 @@ const getAll = async () => {
 };
 
 const getUser = async id => {
-  return allUsers.find(element => element.id === id);
+  const user = allUsers.find(element => element.id === id);
+  if (!user) {
+    return;
+  }
+  return user;
 };
 
 const postUser = async user => {
@@ -43,12 +48,8 @@ const putUser = async (id, user) => {
   if (!user.login || !user.password) {
     return;
   }
-  allUsers.filter((item, index) => {
-    if (item.id === id) {
-      user.id = id;
-      allUsers[index] = user;
-    }
-  });
+  const index = allUsers.findIndex(element => element.id === id);
+  allUsers[index] = user;
   return allUsers.find(element => element.id === id);
 };
 
@@ -58,12 +59,8 @@ const deleteUser = async id => {
     return;
   }
   updateTasks(id);
-  allUsers.filter((item, index) => {
-    if (item.id === id) {
-      allUsers.splice(index, 1);
-    }
-    return item;
-  });
+  const index = allUsers.findIndex(element => element.id === id);
+  allUsers.splice(index, 1);
   return allUsers;
 };
 

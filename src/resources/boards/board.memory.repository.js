@@ -1,57 +1,27 @@
 const uuid = require('uuid');
+
 const { allTasks } = require('../tasks/task.memory.repository');
+const Column = require('../columns/column.model');
 
 const allBoards = [
   {
     id: '1',
     title: 'Project1',
     columns: [
-      {
-        id: '1',
-        title: 'to-do',
-        order: '1'
-      },
-      {
-        id: '2',
-        title: 'development',
-        order: '2'
-      },
-      {
-        id: '3',
-        title: 'test',
-        order: '3'
-      },
-      {
-        id: '4',
-        title: 'done',
-        order: '4'
-      }
+      new Column(uuid(), 'to-do', '1'),
+      new Column(uuid(), 'development', '2'),
+      new Column(uuid(), 'test', '3'),
+      new Column(uuid(), 'done', '4')
     ]
   },
   {
     id: '2',
     title: 'Project2',
     columns: [
-      {
-        id: '1',
-        title: 'to-do',
-        order: '1'
-      },
-      {
-        id: '2',
-        title: 'development',
-        order: '2'
-      },
-      {
-        id: '3',
-        title: 'test',
-        order: '3'
-      },
-      {
-        id: '4',
-        title: 'done',
-        order: '4'
-      }
+      new Column(uuid(), 'to-do', '1'),
+      new Column(uuid(), 'development', '2'),
+      new Column(uuid(), 'test', '3'),
+      new Column(uuid(), 'done', '4')
     ]
   }
 ];
@@ -61,11 +31,15 @@ const getAll = async () => {
 };
 
 const getBoard = async id => {
-  return allBoards.find(element => element.id === id);
+  const board = allBoards.find(element => element.id === id);
+  if (!board) {
+    return;
+  }
+  return board;
 };
 
 const postBoard = async board => {
-  if (!board.title || !board.columns.length) {
+  if (!board.title || !board.columns) {
     return;
   }
   board.id = uuid();
@@ -74,16 +48,12 @@ const postBoard = async board => {
 };
 
 const putBoard = async (id, board) => {
-  if (!board.title || !board.columns.length) {
+  if (!board.title || !board.columns) {
     return;
   }
-  allBoards.filter((item, index) => {
-    if (item.id === id) {
-      board.id = id;
-      allBoards[index] = board;
-    }
-  });
-  return allBoards.find(element => element.id === id);
+  const index = allBoards.findIndex(element => element.id === id);
+  allBoards[index] = board;
+  return allBoards[index];
 };
 
 const deleteBoard = async id => {
@@ -92,12 +62,8 @@ const deleteBoard = async id => {
     return;
   }
   deleteTasks(id);
-  allBoards.filter((item, index) => {
-    if (item.id === id) {
-      allBoards.splice(index, 1);
-    }
-    return item;
-  });
+  const index = allBoards.findIndex(element => element.id === id);
+  allBoards.splice(index, 1);
   return allBoards;
 };
 

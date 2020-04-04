@@ -51,7 +51,7 @@ router.route('/').post(async (req, res) => {
 
 router.route('/:id').put(async (req, res) => {
   taskService
-    .putTask(req.baseUrl.split('/')[2], req.params.id, req.body)
+    .putTask(req.params.id, req.body)
     .then(task => {
       if (!task) {
         res

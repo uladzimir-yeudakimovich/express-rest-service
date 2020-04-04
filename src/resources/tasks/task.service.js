@@ -6,7 +6,7 @@ const getTask = id => taskRepo.getTask(id);
 
 const postTask = (boardId, task) => taskRepo.postTask(boardId, task);
 
-const putTask = (boardId, id, task) => taskRepo.putTask(boardId, id, task);
+const putTask = (id, task) => taskRepo.putTask(id, task);
 
 const deleteTask = id => taskRepo.deleteTask(id);
 
