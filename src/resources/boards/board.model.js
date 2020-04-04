@@ -9,9 +9,6 @@ class Board {
   }
 
   static toResponse(board) {
-    if (!board) {
-      return;
-    }
     const { id, title, columns } = board;
     return { id, title, columns };
   }

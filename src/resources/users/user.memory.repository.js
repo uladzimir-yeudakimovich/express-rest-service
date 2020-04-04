@@ -68,13 +68,11 @@ const deleteUser = async id => {
 };
 
 const updateTasks = async id => {
-  allTasks.filter(item => {
+  allTasks.forEach(item => {
     if (item.userId === id) {
       item.userId = null;
     }
-    return item;
   });
-  return allTasks;
 };
 
 module.exports = { getAll, getUser, postUser, putUser, deleteUser };
