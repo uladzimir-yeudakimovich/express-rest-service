@@ -48,6 +48,9 @@ const getTask = async id => {
 };
 
 const postTask = async (boardId, task) => {
+  if (!task.title || !task.description) {
+    return;
+  }
   task.id = uuid();
   task.boardId = boardId;
   allTasks.push(task);
@@ -55,14 +58,17 @@ const postTask = async (boardId, task) => {
 };
 
 const putTask = async (boardId, id, task) => {
-  return allTasks.filter((item, index) => {
+  if (!task.title || !task.description) {
+    return;
+  }
+  allTasks.filter((item, index) => {
     if (item.id === id) {
       task.id = id;
       task.boardId = boardId;
       allTasks[index] = task;
-      return task;
     }
   });
+  return allTasks.find(element => element.id === id);
 };
 
 const deleteTask = async id => {
