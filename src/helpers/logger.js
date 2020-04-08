@@ -6,12 +6,12 @@ const logger = createLogger({
   transports: [
     new transports.Console(),
     new transports.File({
-      filename: 'src/helpers/logger/error.log',
+      filename: 'logger/error.log',
       level: 'error',
       format: format.combine(format.uncolorize(), format.json())
     }),
     new transports.File({
-      filename: 'src/helpers/logger/info.log',
+      filename: 'logger/info.log',
       level: 'info',
       format: format.combine(format.uncolorize(), format.json())
     })

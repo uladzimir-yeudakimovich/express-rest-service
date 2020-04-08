@@ -1,4 +1,4 @@
-require('./helpers/logger/logger');
+require('./helpers/logger');
 
 const express = require('express');
 const swaggerUI = require('swagger-ui-express');
