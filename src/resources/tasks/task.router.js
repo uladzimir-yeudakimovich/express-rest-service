@@ -1,7 +1,9 @@
 const router = require('express').Router();
+const { BAD_REQUEST } = require('http-status-codes');
 
 const Task = require('./task.model');
 const taskService = require('./task.service');
+const { responseToClient } = require('../../helpers/error-hendling');
 
 router.route('/').get(async (req, res) => {
   const tasks = await taskService.getAll(req.baseUrl.split('/')[2]);
@@ -9,55 +11,36 @@ router.route('/').get(async (req, res) => {
 });
 
 router.route('/:id').get(async (req, res) => {
-  taskService
-    .getTask(req.params.id)
-    .then(task =>
-      !task
-        ? res.status(404).send('Task not found')
-        : res.json(Task.toResponse(task))
-    )
-    .catch(() => {
-      res.status(400).send('Bad request');
-    });
+  if (!req.params.id) {
+    res.status(BAD_REQUEST).send(BAD_REQUEST);
+  }
+  await responseToClient(taskService.getTask(req.params.id), res, Task);
 });
 
 router.route('/').post(async (req, res) => {
-  taskService
-    .postTask(req.baseUrl.split('/')[2], req.body)
-    .then(task =>
-      !task
-        ? res.status(404).send('Task not found')
-        : res.json(Task.toResponse(task))
-    )
-    .catch(() => {
-      res.status(400).send('Bad request');
-    });
+  const boardId = req.baseUrl.split('/')[2];
+  if (!boardId || !req.body) {
+    res.status(BAD_REQUEST).send(BAD_REQUEST);
+  }
+  await responseToClient(taskService.postTask(boardId, req.body), res, Task);
 });
 
 router.route('/:id').put(async (req, res) => {
-  taskService
-    .putTask(req.params.id, req.body)
-    .then(task =>
-      !task
-        ? res.status(404).send('Task not found')
-        : res.json(Task.toResponse(task))
-    )
-    .catch(() => {
-      res.status(400).send('Bad request');
-    });
+  if (!req.params.id || !req.body) {
+    res.status(BAD_REQUEST).send(BAD_REQUEST);
+  }
+  await responseToClient(
+    taskService.putTask(req.params.id, req.body),
+    res,
+    Task
+  );
 });
 
 router.route('/:id').delete(async (req, res) => {
-  taskService
-    .deleteTask(req.params.id)
-    .then(task =>
-      !task
-        ? res.status(404).send('Task not found')
-        : res.json(task.map(Task.toResponse))
-    )
-    .catch(() => {
-      res.status(400).send('Bad request');
-    });
+  if (!req.params.id) {
+    res.status(BAD_REQUEST).send(BAD_REQUEST);
+  }
+  await responseToClient(taskService.deleteTask(req.params.id), res, Task);
 });
 
 module.exports = router;

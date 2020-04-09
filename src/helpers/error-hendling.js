@@ -11,7 +11,7 @@ class Error {
   }
 }
 
-function responseToClient(method, res, validReq) {
+const responseToClient = async (method, res, validReq) => {
   method
     .then(user => {
       if (!user) {
@@ -30,6 +30,6 @@ function responseToClient(method, res, validReq) {
       }
       res.status(err.status).send(err.text);
     });
-}
+};
 
 module.exports = { responseToClient };

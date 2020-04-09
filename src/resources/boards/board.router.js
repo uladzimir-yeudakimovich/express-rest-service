@@ -1,7 +1,9 @@
 const router = require('express').Router();
+const { BAD_REQUEST } = require('http-status-codes');
 
 const Board = require('./board.model');
 const boardService = require('./board.service');
+const { responseToClient } = require('../../helpers/error-hendling');
 
 router.route('/').get(async (req, res) => {
   const boards = await boardService.getAll();
@@ -9,55 +11,35 @@ router.route('/').get(async (req, res) => {
 });
 
 router.route('/:id').get(async (req, res) => {
-  boardService
-    .getBoard(req.params.id)
-    .then(board =>
-      !board
-        ? res.status(404).send('Board not found')
-        : res.json(Board.toResponse(board))
-    )
-    .catch(() => {
-      res.status(400).send('Bad request');
-    });
+  if (!req.params.id) {
+    res.status(BAD_REQUEST).send(BAD_REQUEST);
+  }
+  await responseToClient(boardService.getBoard(req.params.id), res, Board);
 });
 
 router.route('/').post(async (req, res) => {
-  boardService
-    .postBoard(req.body)
-    .then(board =>
-      !board
-        ? res.status(404).send('Board not found')
-        : res.json(Board.toResponse(board))
-    )
-    .catch(() => {
-      res.status(400).send('Bad request');
-    });
+  if (!req.body) {
+    res.status(BAD_REQUEST).send(BAD_REQUEST);
+  }
+  await responseToClient(boardService.postBoard(req.body), res, Board);
 });
 
 router.route('/:id').put(async (req, res) => {
-  boardService
-    .putBoard(req.params.id, req.body)
-    .then(board =>
-      !board
-        ? res.status(404).send('Board not found')
-        : res.json(Board.toResponse(board))
-    )
-    .catch(() => {
-      res.status(400).send('Bad request');
-    });
+  if (!req.params.id || !req.body) {
+    res.status(BAD_REQUEST).send(BAD_REQUEST);
+  }
+  await responseToClient(
+    boardService.putBoard(req.params.id, req.body),
+    res,
+    Board
+  );
 });
 
 router.route('/:id').delete(async (req, res) => {
-  boardService
-    .deleteBoard(req.params.id)
-    .then(board =>
-      !board
-        ? res.status(404).send('Board not found')
-        : res.json(board.map(Board.toResponse))
-    )
-    .catch(() => {
-      res.status(400).send('Bad request');
-    });
+  if (!req.params.id) {
+    res.status(BAD_REQUEST).send(BAD_REQUEST);
+  }
+  await responseToClient(boardService.deleteBoard(req.params.id), res, Board);
 });
 
 module.exports = router;
