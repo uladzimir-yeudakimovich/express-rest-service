@@ -2,8 +2,8 @@ const express = require('express');
 const swaggerUI = require('swagger-ui-express');
 const path = require('path');
 const YAML = require('yamljs');
-const { logger } = require('./helpers/logger');
 
+const { logger } = require('./helpers/logger');
 const userRouter = require('./resources/users/user.router');
 const boardRouter = require('./resources/boards/board.router');
 const taskRouter = require('./resources/tasks/task.router');
@@ -31,8 +31,7 @@ app.use('/', (req, res, next) => {
 
 process.on('uncaughtException', error => {
   logger.error('uncaughtException', error);
-  // eslint-disable-next-line no-process-exit
-  process.exit(1);
+  // logger.exitOnError = false;
 });
 
 process.on('unhandledRejection', reason => {
