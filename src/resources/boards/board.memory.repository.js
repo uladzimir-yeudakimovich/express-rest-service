@@ -1,7 +1,5 @@
 const uuid = require('uuid');
 
-const { allTasks } = require('../tasks/task.memory.repository');
-
 const allBoards = [
   {
     id: '1',
@@ -92,19 +90,9 @@ const deleteBoard = async id => {
   if (!boardToDelete) {
     return;
   }
-  deleteTasks(id);
   const index = allBoards.findIndex(element => element.id === id);
   allBoards.splice(index, 1);
   return allBoards;
-};
-
-const deleteTasks = async id => {
-  for (let i = 0; i < allTasks.length; i++) {
-    if (allTasks[i].boardId === id) {
-      allTasks.splice(i, 1);
-      i--;
-    }
-  }
 };
 
 module.exports = { getAll, getBoard, postBoard, putBoard, deleteBoard };

@@ -80,4 +80,29 @@ const deleteTask = async id => {
   return allTasks;
 };
 
-module.exports = { allTasks, getAll, getTask, postTask, putTask, deleteTask };
+const deleteTasksFromUser = async id => {
+  allTasks.forEach(item => {
+    if (item.userId === id) {
+      item.userId = null;
+    }
+  });
+};
+
+const deleteTasksFromBoard = async id => {
+  for (let i = 0; i < allTasks.length; i++) {
+    if (allTasks[i].boardId === id) {
+      allTasks.splice(i, 1);
+      i--;
+    }
+  }
+};
+
+module.exports = {
+  getAll,
+  getTask,
+  postTask,
+  putTask,
+  deleteTask,
+  deleteTasksFromUser,
+  deleteTasksFromBoard
+};

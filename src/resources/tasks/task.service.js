@@ -10,4 +10,16 @@ const putTask = (id, task) => taskRepo.putTask(id, task);
 
 const deleteTask = id => taskRepo.deleteTask(id);
 
-module.exports = { getAll, getTask, postTask, putTask, deleteTask };
+const deleteTasksFromUser = id => taskRepo.deleteTasksFromUser(id);
+
+const deleteTasksFromBoard = id => taskRepo.deleteTasksFromBoard(id);
+
+module.exports = {
+  getAll,
+  getTask,
+  postTask,
+  putTask,
+  deleteTask,
+  deleteTasksFromUser,
+  deleteTasksFromBoard
+};

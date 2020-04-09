@@ -13,15 +13,15 @@ class Error {
 
 const responseToClient = async (method, res, validReq) => {
   method
-    .then(user => {
-      if (!user) {
+    .then(response => {
+      if (!response) {
         const err = new Error(NOT_FOUND);
         throw err;
       }
-      if (Array.isArray(user)) {
-        res.json(user.map(validReq.toResponse));
+      if (Array.isArray(response)) {
+        res.json(response.map(validReq.toResponse));
       } else {
-        res.json(validReq.toResponse(user));
+        res.json(validReq.toResponse(response));
       }
     })
     .catch(err => {

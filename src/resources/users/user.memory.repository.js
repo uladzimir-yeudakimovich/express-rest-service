@@ -1,7 +1,5 @@
 const uuid = require('uuid');
 
-const { allTasks } = require('../tasks/task.memory.repository');
-
 const allUsers = [
   {
     id: '1',
@@ -58,18 +56,9 @@ const deleteUser = async id => {
   if (!userToDelete) {
     return;
   }
-  updateTasks(id);
   const index = allUsers.findIndex(element => element.id === id);
   allUsers.splice(index, 1);
   return allUsers;
-};
-
-const updateTasks = async id => {
-  allTasks.forEach(item => {
-    if (item.userId === id) {
-      item.userId = null;
-    }
-  });
 };
 
 module.exports = { getAll, getUser, postUser, putUser, deleteUser };
