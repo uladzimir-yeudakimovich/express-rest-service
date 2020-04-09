@@ -6,15 +6,15 @@ const taskService = require('./task.service');
 const { responseToClient } = require('../../helpers/error-hendling');
 
 router.route('/').get(async (req, res) => {
-  const tasks = await taskService.getAll(req.baseUrl.split('/')[2]);
-  res.json(tasks.map(Task.toResponse));
+  const boardId = req.baseUrl.split('/')[2];
+  await responseToClient(taskService.getAll(boardId), req, res, Task);
 });
 
 router.route('/:id').get(async (req, res) => {
   if (!req.params.id) {
     res.status(BAD_REQUEST).send(BAD_REQUEST);
   }
-  await responseToClient(taskService.getTask(req.params.id), res, Task);
+  await responseToClient(taskService.getTask(req.params.id), req, res, Task);
 });
 
 router.route('/').post(async (req, res) => {
@@ -22,7 +22,12 @@ router.route('/').post(async (req, res) => {
   if (!boardId || !req.body) {
     res.status(BAD_REQUEST).send(BAD_REQUEST);
   }
-  await responseToClient(taskService.postTask(boardId, req.body), res, Task);
+  await responseToClient(
+    taskService.postTask(boardId, req.body),
+    req,
+    res,
+    Task
+  );
 });
 
 router.route('/:id').put(async (req, res) => {
@@ -31,6 +36,7 @@ router.route('/:id').put(async (req, res) => {
   }
   await responseToClient(
     taskService.putTask(req.params.id, req.body),
+    req,
     res,
     Task
   );
@@ -40,7 +46,7 @@ router.route('/:id').delete(async (req, res) => {
   if (!req.params.id) {
     res.status(BAD_REQUEST).send(BAD_REQUEST);
   }
-  await responseToClient(taskService.deleteTask(req.params.id), res, Task);
+  await responseToClient(taskService.deleteTask(req.params.id), req, res, Task);
 });
 
 module.exports = router;

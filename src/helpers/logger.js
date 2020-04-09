@@ -18,13 +18,4 @@ const logger = createLogger({
   ]
 });
 
-logger.silly('silly');
-logger.debug('debug');
-logger.verbose('verbose');
-logger.info('info');
-logger.warn('warn');
-logger.error('error');
-
-logger.log('info', 'info from log');
-
 module.exports = { logger };

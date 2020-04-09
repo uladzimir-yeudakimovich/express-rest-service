@@ -1,3 +1,5 @@
+const { logger } = require('./logger');
+
 const {
   INTERNAL_SERVER_ERROR,
   NOT_FOUND,
@@ -11,7 +13,7 @@ class Error {
   }
 }
 
-const responseToClient = async (method, res, validReq) => {
+const responseToClient = async (method, req, res, validationToResponse) => {
   method
     .then(response => {
       if (!response) {
@@ -19,12 +21,19 @@ const responseToClient = async (method, res, validReq) => {
         throw err;
       }
       if (Array.isArray(response)) {
-        res.json(response.map(validReq.toResponse));
+        res.json(response.map(validationToResponse.toResponse));
       } else {
-        res.json(validReq.toResponse(response));
+        res.json(validationToResponse.toResponse(response));
       }
+      const message = JSON.stringify({
+        url: req.originalUrl,
+        params: req.params,
+        body: req.body
+      });
+      logger.log('info', message);
     })
     .catch(err => {
+      logger.error('error', err);
       if (!err.status) {
         err = new Error(INTERNAL_SERVER_ERROR);
       }
