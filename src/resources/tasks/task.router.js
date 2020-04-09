@@ -3,7 +3,7 @@ const { BAD_REQUEST } = require('http-status-codes');
 
 const Task = require('./task.model');
 const taskService = require('./task.service');
-const { responseToClient } = require('../../helpers/error-hendling');
+const { responseToClient } = require('../../helpers/errors-handling');
 
 router.route('/').get(async (req, res) => {
   const boardId = req.baseUrl.split('/')[2];

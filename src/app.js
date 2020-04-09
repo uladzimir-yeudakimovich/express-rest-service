@@ -29,6 +29,16 @@ app.use('/', (req, res, next) => {
   next();
 });
 
+process.on('uncaughtException', error => {
+  logger.error('uncaughtException', error);
+  // eslint-disable-next-line no-process-exit
+  process.exit(1);
+});
+
+process.on('unhandledRejection', reason => {
+  logger.error('unhandledRejection', reason);
+});
+
 app.use('/users', userRouter);
 
 app.use('/boards', boardRouter);

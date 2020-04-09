@@ -3,7 +3,7 @@ const { BAD_REQUEST } = require('http-status-codes');
 
 const User = require('./user.model');
 const usersService = require('./user.service');
-const { responseToClient } = require('../../helpers/error-hendling');
+const { responseToClient } = require('../../helpers/errors-handling');
 
 router.route('/').get(async (req, res) => {
   await responseToClient(usersService.getAll(), req, res, User);
