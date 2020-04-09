@@ -1,10 +1,10 @@
-const { logger } = require('./logger');
-
 const {
   INTERNAL_SERVER_ERROR,
   NOT_FOUND,
   getStatusText
 } = require('http-status-codes');
+
+const { logger } = require('./logger');
 
 class Error {
   constructor(status) {
@@ -25,12 +25,6 @@ const responseToClient = async (method, req, res, validationToResponse) => {
       } else {
         res.json(validationToResponse.toResponse(response));
       }
-      const message = JSON.stringify({
-        url: req.originalUrl,
-        params: req.params,
-        body: req.body
-      });
-      logger.log('info', message);
     })
     .catch(err => {
       logger.error('error', err);
