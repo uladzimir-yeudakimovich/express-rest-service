@@ -15,6 +15,12 @@ const logger = createLogger({
       level: 'info',
       format: format.combine(format.uncolorize(), format.json())
     })
+  ],
+  exceptionHandlers: [
+    new transports.File({
+      filename: 'logger/exceptions.log',
+      format: format.combine(format.uncolorize(), format.json())
+    })
   ]
 });
 

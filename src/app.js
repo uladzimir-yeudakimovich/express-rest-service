@@ -26,13 +26,9 @@ app.use('/', (req, res, next) => {
   next();
 });
 
-process.on('uncaughtException', error => {
-  logger.error('uncaughtException', error);
-  // logger.exitOnError = false;
-});
-
 process.on('unhandledRejection', reason => {
   logger.error('unhandledRejection', reason);
+  throw reason;
 });
 
 app.use('/users', userRouter);
