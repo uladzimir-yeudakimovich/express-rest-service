@@ -16,11 +16,8 @@ app.use(express.json());
 app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 app.use('/', (req, res, next) => {
-  const message = JSON.stringify({
-    url: req.originalUrl,
-    params: req.params,
-    body: req.body
-  });
+  const { url, query, body } = req;
+  const message = JSON.stringify({ url, query, body });
   logger.log('info', message);
   if (req.originalUrl === '/') {
     res.send('Service is running!');
