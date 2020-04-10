@@ -44,6 +44,11 @@
       "git add"
     ]
   },
+  "nodemonConfig": {
+    "ignore": [
+      "logs/*"
+    ]
+  },
   "dependencies": {
     "commander": "^5.0.0",
     "cross-env": "6.0.3",

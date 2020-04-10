@@ -13,10 +13,11 @@ class Error {
   }
 }
 
-const responseToClient = async (promiss, req, res, validationToResponse) => {
+const responseToClient = async (promiss, req, res, model) => {
   const { originalUrl, method, params, body } = req;
   const message = JSON.stringify({ url: originalUrl, method, params, body });
   logger.log('info', message);
+
   promiss
     .then(response => {
       if (!response) {
@@ -24,9 +25,9 @@ const responseToClient = async (promiss, req, res, validationToResponse) => {
         throw err;
       }
       if (Array.isArray(response)) {
-        res.json(response.map(validationToResponse.toResponse));
+        res.json(response.map(model.toResponse));
       } else {
-        res.json(validationToResponse.toResponse(response));
+        res.json(model.toResponse(response));
       }
     })
     .catch(err => {
