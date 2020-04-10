@@ -13,8 +13,11 @@ class Error {
   }
 }
 
-const responseToClient = async (method, req, res, validationToResponse) => {
-  method
+const responseToClient = async (promiss, req, res, validationToResponse) => {
+  const { originalUrl, method, params, body } = req;
+  const message = JSON.stringify({ url: originalUrl, method, params, body });
+  logger.log('info', message);
+  promiss
     .then(response => {
       if (!response) {
         const err = new Error(NOT_FOUND);
