@@ -2,6 +2,12 @@
 {"status":404,"text":"Not Found","level":"error","message":"   error"}
 {"status":404,"text":"Not Found","level":"error","message":"   error"}
 {"status":404,"text":"Not Found","level":"error","message":"   error"}
+{"status":400,"text":"Bad Request","level":"error","message":"   error"}
+{"status":404,"text":"Not Found","level":"error","message":"   error"}
+{"status":400,"text":"Bad Request","level":"error","message":"   error"}
+{"status":404,"text":"Not Found","level":"error","message":"   error"}
+{"status":400,"text":"Bad Request","level":"error","message":"   error"}
 {"status":404,"text":"Not Found","level":"error","message":"   error"}
 {"status":404,"text":"Not Found","level":"error","message":"   error"}
+{"status":400,"text":"Bad Request","level":"error","message":"   error"}
 {"status":404,"text":"Not Found","level":"error","message":"   error"}

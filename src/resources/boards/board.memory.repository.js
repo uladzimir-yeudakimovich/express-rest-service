@@ -62,14 +62,15 @@ const getAll = async () => {
 const getBoard = async id => {
   const board = allBoards.find(element => element.id === id);
   if (!board) {
-    return;
+    return 404;
   }
+  console.log(board);
   return board;
 };
 
 const postBoard = async board => {
   if (!board.title || !board.columns) {
-    return;
+    return 400;
   }
   board.id = uuid();
   allBoards.push(board);
@@ -78,9 +79,13 @@ const postBoard = async board => {
 
 const putBoard = async (id, board) => {
   if (!board.title || !board.columns) {
-    return;
+    return 400;
   }
   const index = allBoards.findIndex(element => element.id === id);
+  if (index < 0) {
+    return 404;
+  }
+  board.id = id;
   allBoards[index] = board;
   return allBoards[index];
 };
@@ -88,7 +93,7 @@ const putBoard = async (id, board) => {
 const deleteBoard = async id => {
   const boardToDelete = allBoards.find(element => element.id === id);
   if (!boardToDelete) {
-    return;
+    return 404;
   }
   const index = allBoards.findIndex(element => element.id === id);
   allBoards.splice(index, 1);

@@ -46,14 +46,14 @@ const getAll = async boardId => {
 const getTask = async id => {
   const task = allTasks.find(element => element.id === id);
   if (!task) {
-    return;
+    return 404;
   }
   return task;
 };
 
 const postTask = async (boardId, task) => {
   if (!task.title || !task.description) {
-    return;
+    return 400;
   }
   task.id = uuid();
   task.boardId = boardId;
@@ -63,9 +63,13 @@ const postTask = async (boardId, task) => {
 
 const putTask = async (id, task) => {
   if (!task.title || !task.description) {
-    return;
+    return 400;
   }
   const index = allTasks.findIndex(element => element.id === id);
+  if (index < 0) {
+    return 404;
+  }
+  task.id = id;
   allTasks[index] = task;
   return allTasks.find(element => element.id === id);
 };
@@ -73,7 +77,7 @@ const putTask = async (id, task) => {
 const deleteTask = async id => {
   const taskToDelete = allTasks.find(element => element.id === id);
   if (!taskToDelete) {
-    return;
+    return 404;
   }
   const index = allTasks.findIndex(element => element.id === id);
   allTasks.splice(index, 1);

@@ -28,14 +28,14 @@ const getAll = async () => {
 const getUser = async id => {
   const user = allUsers.find(element => element.id === id);
   if (!user) {
-    return;
+    return 404;
   }
   return user;
 };
 
 const postUser = async user => {
   if (!user.login || !user.password) {
-    return;
+    return 400;
   }
   user.id = uuid();
   allUsers.push(user);
@@ -44,9 +44,13 @@ const postUser = async user => {
 
 const putUser = async (id, user) => {
   if (!user.login || !user.password) {
-    return;
+    return 400;
   }
   const index = allUsers.findIndex(element => element.id === id);
+  if (index < 0) {
+    return 404;
+  }
+  user.id = id;
   allUsers[index] = user;
   return allUsers.find(element => element.id === id);
 };
@@ -54,7 +58,7 @@ const putUser = async (id, user) => {
 const deleteUser = async id => {
   const userToDelete = allUsers.find(element => element.id === id);
   if (!userToDelete) {
-    return;
+    return 404;
   }
   const index = allUsers.findIndex(element => element.id === id);
   allUsers.splice(index, 1);

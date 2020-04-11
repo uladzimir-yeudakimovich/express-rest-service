@@ -1,73 +1,51 @@
-{"level":"info","message":"    {\"url\":\"/boards\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Autotest board\",\"columns\":[{\"title\":\"Backlog\",\"order\":1},{\"title\":\"Sprint\",\"order\":2}],\"id\":\"6d58ed23-288a-4822-b07c-37569f1310b9\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Autotest board\",\"columns\":[{\"title\":\"Backlog\",\"order\":1},{\"title\":\"Sprint\",\"order\":2}],\"id\":\"f7f2f0c0-d299-42a4-a7a3-42a2830c51ef\"}}"}
 {"level":"info","message":"    {\"url\":\"/users\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/6d58ed23-288a-4822-b07c-37569f1310b9/tasks\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Autotest task\",\"order\":0,\"description\":\"Lorem ipsum\",\"userId\":null,\"boardId\":\"6d58ed23-288a-4822-b07c-37569f1310b9\",\"columnId\":null,\"id\":\"5a4bded7-ddae-439e-811a-a2546b2a66d7\"}}"}
+{"level":"info","message":"    {\"url\":\"/users\",\"method\":\"POST\",\"params\":{},\"body\":{\"name\":\"string\",\"login\":\"string\",\"password\":\"string\",\"id\":\"88382ed7-9106-4e5c-8133-c6d8162d4bfd\"}}"}
+{"level":"info","message":"    {\"url\":\"/users/1\",\"method\":\"GET\",\"params\":{\"id\":\"1\"},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/users/11\",\"method\":\"GET\",\"params\":{\"id\":\"11\"},\"body\":{}}"}
+{"status":404,"text":"Not Found","level":"error","message":"   error"}
+{"level":"info","message":"    {\"url\":\"/users/2\",\"method\":\"GET\",\"params\":{\"id\":\"2\"},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/users/-1\",\"method\":\"GET\",\"params\":{\"id\":\"-1\"},\"body\":{}}"}
+{"status":404,"text":"Not Found","level":"error","message":"   error"}
+{"level":"info","message":"    {\"url\":\"/users/1\",\"method\":\"PUT\",\"params\":{\"id\":\"1\"},\"body\":{\"name\":\"string\",\"login\":\"string\",\"password\":\"string\",\"id\":\"1\"}}"}
+{"level":"info","message":"    {\"url\":\"/users/0\",\"method\":\"PUT\",\"params\":{\"id\":\"0\"},\"body\":{\"name\":\"string\",\"login\":\"string\",\"password\":\"string\"}}"}
+{"status":404,"text":"Not Found","level":"error","message":"   error"}
+{"level":"info","message":"    {\"url\":\"/users/1\",\"method\":\"DELETE\",\"params\":{\"id\":\"1\"},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/users/1\",\"method\":\"DELETE\",\"params\":{\"id\":\"1\"},\"body\":{}}"}
+{"status":404,"text":"Not Found","level":"error","message":"   error"}
 {"level":"info","message":"    {\"url\":\"/boards\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/6d58ed23-288a-4822-b07c-37569f1310b9/tasks\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/users\",\"method\":\"POST\",\"params\":{},\"body\":{\"name\":\"TEST_USER\",\"login\":\"test_user\",\"password\":\"T35t_P@55w0rd\",\"id\":\"e7812136-7513-4d8a-8c22-27ff0969f46c\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/users/e7812136-7513-4d8a-8c22-27ff0969f46c\",\"method\":\"GET\",\"params\":{\"id\":\"e7812136-7513-4d8a-8c22-27ff0969f46c\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/6d58ed23-288a-4822-b07c-37569f1310b9/tasks\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/1\",\"method\":\"GET\",\"params\":{\"id\":\"1\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/users/e7812136-7513-4d8a-8c22-27ff0969f46c\",\"method\":\"DELETE\",\"params\":{\"id\":\"e7812136-7513-4d8a-8c22-27ff0969f46c\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/6d58ed23-288a-4822-b07c-37569f1310b9/tasks/5a4bded7-ddae-439e-811a-a2546b2a66d7\",\"method\":\"GET\",\"params\":{\"id\":\"5a4bded7-ddae-439e-811a-a2546b2a66d7\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Autotest board\",\"columns\":[{\"title\":\"Backlog\",\"order\":1},{\"title\":\"Sprint\",\"order\":2}],\"id\":\"91a2627e-826e-4823-a5a6-2573de299e18\"}}"}
-{"level":"info","message":"    {\"url\":\"/users\",\"method\":\"POST\",\"params\":{},\"body\":{\"name\":\"TEST_USER\",\"login\":\"test_user\",\"password\":\"T35t_P@55w0rd\",\"id\":\"06b7775b-95e8-4f83-9cb8-4807b5134c8c\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/6d58ed23-288a-4822-b07c-37569f1310b9/tasks\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Autotest task\",\"order\":0,\"description\":\"Lorem ipsum\",\"userId\":null,\"boardId\":\"6d58ed23-288a-4822-b07c-37569f1310b9\",\"columnId\":null,\"id\":\"52c9fe46-2bc2-4cc6-a3e2-9af4e0349b97\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/91a2627e-826e-4823-a5a6-2573de299e18\",\"method\":\"DELETE\",\"params\":{\"id\":\"91a2627e-826e-4823-a5a6-2573de299e18\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/users/06b7775b-95e8-4f83-9cb8-4807b5134c8c\",\"method\":\"DELETE\",\"params\":{\"id\":\"06b7775b-95e8-4f83-9cb8-4807b5134c8c\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/6d58ed23-288a-4822-b07c-37569f1310b9/tasks/52c9fe46-2bc2-4cc6-a3e2-9af4e0349b97\",\"method\":\"DELETE\",\"params\":{\"id\":\"52c9fe46-2bc2-4cc6-a3e2-9af4e0349b97\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Autotest board\",\"columns\":[{\"title\":\"Backlog\",\"order\":1},{\"title\":\"Sprint\",\"order\":2}],\"id\":\"eff5f868-3c80-4139-8fa8-732e960f5396\"}}"}
-{"level":"info","message":"    {\"url\":\"/users\",\"method\":\"POST\",\"params\":{},\"body\":{\"name\":\"TEST_USER\",\"login\":\"test_user\",\"password\":\"T35t_P@55w0rd\",\"id\":\"8556dcfa-2ed6-42df-ad1b-df2611658284\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/6d58ed23-288a-4822-b07c-37569f1310b9/tasks\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Autotest task\",\"order\":0,\"description\":\"Lorem ipsum\",\"userId\":null,\"boardId\":\"6d58ed23-288a-4822-b07c-37569f1310b9\",\"columnId\":null,\"id\":\"95b83fa7-8fd4-4052-8c21-3eae7e4424de\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/eff5f868-3c80-4139-8fa8-732e960f5396\",\"method\":\"PUT\",\"params\":{\"id\":\"eff5f868-3c80-4139-8fa8-732e960f5396\"},\"body\":{\"id\":\"eff5f868-3c80-4139-8fa8-732e960f5396\",\"title\":\"Autotest updated board\",\"columns\":[{\"title\":\"Backlog\",\"order\":1},{\"title\":\"Sprint\",\"order\":2}]}}"}
-{"level":"info","message":"    {\"url\":\"/users/8556dcfa-2ed6-42df-ad1b-df2611658284\",\"method\":\"PUT\",\"params\":{\"id\":\"8556dcfa-2ed6-42df-ad1b-df2611658284\"},\"body\":{\"name\":\"Autotest updated TEST_USER\",\"login\":\"test_user\",\"password\":\"T35t_P@55w0rd\",\"id\":\"8556dcfa-2ed6-42df-ad1b-df2611658284\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/6d58ed23-288a-4822-b07c-37569f1310b9/tasks/95b83fa7-8fd4-4052-8c21-3eae7e4424de\",\"method\":\"PUT\",\"params\":{\"id\":\"95b83fa7-8fd4-4052-8c21-3eae7e4424de\"},\"body\":{\"id\":\"95b83fa7-8fd4-4052-8c21-3eae7e4424de\",\"title\":\"Autotest updated task\",\"order\":0,\"description\":\"Lorem ipsum\",\"userId\":null,\"boardId\":\"6d58ed23-288a-4822-b07c-37569f1310b9\",\"columnId\":null}}"}
-{"level":"info","message":"    {\"url\":\"/boards/eff5f868-3c80-4139-8fa8-732e960f5396\",\"method\":\"GET\",\"params\":{\"id\":\"eff5f868-3c80-4139-8fa8-732e960f5396\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/users/8556dcfa-2ed6-42df-ad1b-df2611658284\",\"method\":\"GET\",\"params\":{\"id\":\"8556dcfa-2ed6-42df-ad1b-df2611658284\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/6d58ed23-288a-4822-b07c-37569f1310b9/tasks/95b83fa7-8fd4-4052-8c21-3eae7e4424de\",\"method\":\"GET\",\"params\":{\"id\":\"95b83fa7-8fd4-4052-8c21-3eae7e4424de\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/eff5f868-3c80-4139-8fa8-732e960f5396\",\"method\":\"DELETE\",\"params\":{\"id\":\"eff5f868-3c80-4139-8fa8-732e960f5396\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/users/8556dcfa-2ed6-42df-ad1b-df2611658284\",\"method\":\"DELETE\",\"params\":{\"id\":\"8556dcfa-2ed6-42df-ad1b-df2611658284\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/6d58ed23-288a-4822-b07c-37569f1310b9/tasks/5a4bded7-ddae-439e-811a-a2546b2a66d7\",\"method\":\"GET\",\"params\":{\"id\":\"5a4bded7-ddae-439e-811a-a2546b2a66d7\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/users\",\"method\":\"POST\",\"params\":{},\"body\":{\"name\":\"TEST_USER\",\"login\":\"test_user\",\"password\":\"T35t_P@55w0rd\",\"id\":\"04cd6767-e047-4416-ac18-2357d5db4bb1\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/6d58ed23-288a-4822-b07c-37569f1310b9/tasks/5a4bded7-ddae-439e-811a-a2546b2a66d7\",\"method\":\"DELETE\",\"params\":{\"id\":\"5a4bded7-ddae-439e-811a-a2546b2a66d7\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/1\",\"method\":\"DELETE\",\"params\":{\"id\":\"1\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/users/04cd6767-e047-4416-ac18-2357d5db4bb1\",\"method\":\"DELETE\",\"params\":{\"id\":\"04cd6767-e047-4416-ac18-2357d5db4bb1\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/6d58ed23-288a-4822-b07c-37569f1310b9/tasks/5a4bded7-ddae-439e-811a-a2546b2a66d7\",\"method\":\"GET\",\"params\":{\"id\":\"5a4bded7-ddae-439e-811a-a2546b2a66d7\"},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"string\",\"columns\":[{\"title\":\"string\",\"order\":0}],\"id\":\"6cb26640-bb22-4223-95e8-55350816213f\"}}"}
+{"level":"info","message":"    {\"url\":\"/boards\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"\",\"columns\":[{\"title\":\"string\",\"order\":0}]}}"}
+{"status":400,"text":"Bad Request","level":"error","message":"   error"}
+{"level":"info","message":"    {\"url\":\"/boards/2\",\"method\":\"GET\",\"params\":{\"id\":\"2\"},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards/244\",\"method\":\"GET\",\"params\":{\"id\":\"244\"},\"body\":{}}"}
 {"status":404,"text":"Not Found","level":"error","message":"   error"}
-{"level":"info","message":"    {\"url\":\"/boards/1\",\"method\":\"GET\",\"params\":{\"id\":\"1\"},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards/2\",\"method\":\"PUT\",\"params\":{\"id\":\"2\"},\"body\":{\"id\":\"2\",\"title\":\"string\",\"columns\":[{\"id\":\"string\",\"title\":\"string\",\"order\":0}]}}"}
+{"level":"info","message":"    {\"url\":\"/boards/2\",\"method\":\"PUT\",\"params\":{\"id\":\"2\"},\"body\":{\"id\":\"2\",\"title\":\"string\",\"columns\":[{\"id\":\"string\",\"title\":\"string\",\"order\":0}]}}"}
+{"level":"info","message":"    {\"url\":\"/boards/2\",\"method\":\"PUT\",\"params\":{\"id\":\"2\"},\"body\":{\"id\":\"\",\"title\":\"\",\"columns\":[{\"id\":\"string\",\"title\":\"string\",\"order\":0}]}}"}
+{"status":400,"text":"Bad Request","level":"error","message":"   error"}
+{"level":"info","message":"    {\"url\":\"/boards/2\",\"method\":\"DELETE\",\"params\":{\"id\":\"2\"},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards/2\",\"method\":\"DELETE\",\"params\":{\"id\":\"2\"},\"body\":{}}"}
 {"status":404,"text":"Not Found","level":"error","message":"   error"}
-{"level":"info","message":"    {\"url\":\"/users\",\"method\":\"POST\",\"params\":{},\"body\":{\"name\":\"TEST_USER\",\"login\":\"test_user\",\"password\":\"T35t_P@55w0rd\",\"id\":\"c63ad256-ffcc-40f8-8f19-68daf3f7165c\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/6d58ed23-288a-4822-b07c-37569f1310b9\",\"method\":\"DELETE\",\"params\":{\"id\":\"6d58ed23-288a-4822-b07c-37569f1310b9\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Autotest board\",\"columns\":[{\"title\":\"Backlog\",\"order\":1},{\"title\":\"Sprint\",\"order\":2}],\"id\":\"51c3563d-f4e5-468f-9236-f3007c95f90e\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Autotest board\",\"columns\":[{\"title\":\"Backlog\",\"order\":1},{\"title\":\"Sprint\",\"order\":2}],\"id\":\"3cf2d72f-ea03-45e3-b06b-8c12d62eb8ab\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/3cf2d72f-ea03-45e3-b06b-8c12d62eb8ab/tasks\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Task #1\",\"order\":1,\"description\":\"Lorem ipsum\",\"userId\":\"c63ad256-ffcc-40f8-8f19-68daf3f7165c\",\"boardId\":\"3cf2d72f-ea03-45e3-b06b-8c12d62eb8ab\",\"id\":\"3ab43e3c-c3b5-4f1a-ae80-d9e8f7d9f0cc\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Task #1\",\"order\":1,\"description\":\"Lorem ipsum\",\"boardId\":\"51c3563d-f4e5-468f-9236-f3007c95f90e\",\"userId\":null,\"columnId\":null,\"id\":\"6bc40556-6d81-4901-a738-66148cb1228a\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/3cf2d72f-ea03-45e3-b06b-8c12d62eb8ab/tasks\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Task #2\",\"order\":2,\"description\":\"Lorem ipsum\",\"userId\":\"c63ad256-ffcc-40f8-8f19-68daf3f7165c\",\"boardId\":\"3cf2d72f-ea03-45e3-b06b-8c12d62eb8ab\",\"id\":\"14799bb6-a45f-4fa6-b346-9d929bb50589\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Task #4\",\"order\":4,\"description\":\"Lorem ipsum\",\"boardId\":\"51c3563d-f4e5-468f-9236-f3007c95f90e\",\"userId\":null,\"columnId\":null,\"id\":\"29dffb9d-f40b-4d3f-80ff-7fb9c0a3817b\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Task #2\",\"order\":2,\"description\":\"Lorem ipsum\",\"boardId\":\"51c3563d-f4e5-468f-9236-f3007c95f90e\",\"userId\":null,\"columnId\":null,\"id\":\"2ede73b6-99ca-4173-8d98-84dd5eea5817\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Task #3\",\"order\":3,\"description\":\"Lorem ipsum\",\"boardId\":\"51c3563d-f4e5-468f-9236-f3007c95f90e\",\"userId\":null,\"columnId\":null,\"id\":\"52d26e3c-0ea9-43bb-b73a-3d42a8e6b262\"}}"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"Task #5\",\"order\":5,\"description\":\"Lorem ipsum\",\"boardId\":\"51c3563d-f4e5-468f-9236-f3007c95f90e\",\"userId\":null,\"columnId\":null,\"id\":\"f83a62b2-fa72-4468-88d3-2138bfb8903d\"}}"}
-{"level":"info","message":"    {\"url\":\"/users/c63ad256-ffcc-40f8-8f19-68daf3f7165c\",\"method\":\"DELETE\",\"params\":{\"id\":\"c63ad256-ffcc-40f8-8f19-68daf3f7165c\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/3cf2d72f-ea03-45e3-b06b-8c12d62eb8ab/tasks/3ab43e3c-c3b5-4f1a-ae80-d9e8f7d9f0cc\",\"method\":\"GET\",\"params\":{\"id\":\"3ab43e3c-c3b5-4f1a-ae80-d9e8f7d9f0cc\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks/6bc40556-6d81-4901-a738-66148cb1228a\",\"method\":\"GET\",\"params\":{\"id\":\"6bc40556-6d81-4901-a738-66148cb1228a\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks/2ede73b6-99ca-4173-8d98-84dd5eea5817\",\"method\":\"GET\",\"params\":{\"id\":\"2ede73b6-99ca-4173-8d98-84dd5eea5817\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks/29dffb9d-f40b-4d3f-80ff-7fb9c0a3817b\",\"method\":\"GET\",\"params\":{\"id\":\"29dffb9d-f40b-4d3f-80ff-7fb9c0a3817b\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks/52d26e3c-0ea9-43bb-b73a-3d42a8e6b262\",\"method\":\"GET\",\"params\":{\"id\":\"52d26e3c-0ea9-43bb-b73a-3d42a8e6b262\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks/f83a62b2-fa72-4468-88d3-2138bfb8903d\",\"method\":\"GET\",\"params\":{\"id\":\"f83a62b2-fa72-4468-88d3-2138bfb8903d\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/3cf2d72f-ea03-45e3-b06b-8c12d62eb8ab/tasks/14799bb6-a45f-4fa6-b346-9d929bb50589\",\"method\":\"GET\",\"params\":{\"id\":\"14799bb6-a45f-4fa6-b346-9d929bb50589\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e\",\"method\":\"DELETE\",\"params\":{\"id\":\"51c3563d-f4e5-468f-9236-f3007c95f90e\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/3cf2d72f-ea03-45e3-b06b-8c12d62eb8ab/tasks/3ab43e3c-c3b5-4f1a-ae80-d9e8f7d9f0cc\",\"method\":\"DELETE\",\"params\":{\"id\":\"3ab43e3c-c3b5-4f1a-ae80-d9e8f7d9f0cc\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/3cf2d72f-ea03-45e3-b06b-8c12d62eb8ab/tasks/14799bb6-a45f-4fa6-b346-9d929bb50589\",\"method\":\"DELETE\",\"params\":{\"id\":\"14799bb6-a45f-4fa6-b346-9d929bb50589\"},\"body\":{}}"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks/6bc40556-6d81-4901-a738-66148cb1228a\",\"method\":\"GET\",\"params\":{\"id\":\"6bc40556-6d81-4901-a738-66148cb1228a\"},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards/1/tasks\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards/2/tasks\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards/22/tasks\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards/1/tasks\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"string\",\"order\":0,\"description\":\"string\",\"userId\":\"string\",\"boardId\":\"1\",\"columnId\":\"string\",\"id\":\"ffda2312-63c5-40cb-afde-b79bc8e0688b\"}}"}
+{"level":"info","message":"    {\"url\":\"/boards/1/tasks\",\"method\":\"POST\",\"params\":{},\"body\":{\"title\":\"\",\"order\":0,\"description\":\"string\",\"userId\":\"string\",\"boardId\":\"string\",\"columnId\":\"string\"}}"}
+{"status":400,"text":"Bad Request","level":"error","message":"   error"}
+{"level":"info","message":"    {\"url\":\"/boards/1/tasks/1\",\"method\":\"GET\",\"params\":{\"id\":\"1\"},\"body\":{}}"}
 {"status":404,"text":"Not Found","level":"error","message":"   error"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks/2ede73b6-99ca-4173-8d98-84dd5eea5817\",\"method\":\"GET\",\"params\":{\"id\":\"2ede73b6-99ca-4173-8d98-84dd5eea5817\"},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards/2/tasks\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards/1/tasks\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards/ffda2312-63c5-40cb-afde-b79bc8e0688b/tasks/1\",\"method\":\"GET\",\"params\":{\"id\":\"1\"},\"body\":{}}"}
 {"status":404,"text":"Not Found","level":"error","message":"   error"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks/52d26e3c-0ea9-43bb-b73a-3d42a8e6b262\",\"method\":\"GET\",\"params\":{\"id\":\"52d26e3c-0ea9-43bb-b73a-3d42a8e6b262\"},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards/1/tasks/ffda2312-63c5-40cb-afde-b79bc8e0688b\",\"method\":\"GET\",\"params\":{\"id\":\"ffda2312-63c5-40cb-afde-b79bc8e0688b\"},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards/1/tasks/ffda2312-63c5-40cb-afde-b79bc8e0688b\",\"method\":\"PUT\",\"params\":{\"id\":\"ffda2312-63c5-40cb-afde-b79bc8e0688b\"},\"body\":{\"id\":\"ffda2312-63c5-40cb-afde-b79bc8e0688b\",\"title\":\"string\",\"order\":0,\"description\":\"string\",\"userId\":\"string\",\"boardId\":\"string\",\"columnId\":\"string\"}}"}
+{"level":"info","message":"    {\"url\":\"/boards/1/tasks/ffda2312-63c5-40cb-afde-b79bc8e0688b\",\"method\":\"PUT\",\"params\":{\"id\":\"ffda2312-63c5-40cb-afde-b79bc8e0688b\"},\"body\":{\"id\":\"string\",\"title\":\"\",\"order\":0,\"description\":\"string\",\"userId\":\"string\",\"boardId\":\"string\",\"columnId\":\"string\"}}"}
+{"status":400,"text":"Bad Request","level":"error","message":"   error"}
+{"level":"info","message":"    {\"url\":\"/boards/1/tasks/ffda2312-63c5-40cb-afde-b79bc8e0688b\",\"method\":\"DELETE\",\"params\":{\"id\":\"ffda2312-63c5-40cb-afde-b79bc8e0688b\"},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/boards/1/tasks/ffda2312-63c5-40cb-afde-b79bc8e0688b\",\"method\":\"DELETE\",\"params\":{\"id\":\"ffda2312-63c5-40cb-afde-b79bc8e0688b\"},\"body\":{}}"}
 {"status":404,"text":"Not Found","level":"error","message":"   error"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks/29dffb9d-f40b-4d3f-80ff-7fb9c0a3817b\",\"method\":\"GET\",\"params\":{\"id\":\"29dffb9d-f40b-4d3f-80ff-7fb9c0a3817b\"},\"body\":{}}"}
-{"status":404,"text":"Not Found","level":"error","message":"   error"}
-{"level":"info","message":"    {\"url\":\"/boards/51c3563d-f4e5-468f-9236-f3007c95f90e/tasks/f83a62b2-fa72-4468-88d3-2138bfb8903d\",\"method\":\"GET\",\"params\":{\"id\":\"f83a62b2-fa72-4468-88d3-2138bfb8903d\"},\"body\":{}}"}
-{"status":404,"text":"Not Found","level":"error","message":"   error"}
-{"level":"info","message":"    {\"url\":\"/boards/3cf2d72f-ea03-45e3-b06b-8c12d62eb8ab\",\"method\":\"DELETE\",\"params\":{\"id\":\"3cf2d72f-ea03-45e3-b06b-8c12d62eb8ab\"},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/favicon.ico\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
+{"level":"info","message":"    {\"url\":\"/kjlk\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
