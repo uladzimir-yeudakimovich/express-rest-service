@@ -35,10 +35,10 @@ const responseToClient = async (promiss, req, res, model) => {
       }
     })
     .catch(err => {
-      logger.error('error', err);
       if (!err.status) {
         err = new Error(INTERNAL_SERVER_ERROR);
       }
+      logger.error('error', err);
       res.status(err.status).send(err.text);
     });
 };
