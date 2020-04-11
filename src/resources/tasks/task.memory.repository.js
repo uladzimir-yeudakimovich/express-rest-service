@@ -81,7 +81,7 @@ const deleteTask = async id => {
   }
   const index = allTasks.findIndex(element => element.id === id);
   allTasks.splice(index, 1);
-  return allTasks;
+  return 204;
 };
 
 const deleteTasksFromUser = async id => {

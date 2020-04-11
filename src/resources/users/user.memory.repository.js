@@ -62,7 +62,7 @@ const deleteUser = async id => {
   }
   const index = allUsers.findIndex(element => element.id === id);
   allUsers.splice(index, 1);
-  return allUsers;
+  return 204;
 };
 
 module.exports = { getAll, getUser, postUser, putUser, deleteUser };

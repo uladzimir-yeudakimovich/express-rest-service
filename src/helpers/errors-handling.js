@@ -1,7 +1,8 @@
 const {
-  INTERNAL_SERVER_ERROR,
-  NOT_FOUND,
   BAD_REQUEST,
+  NOT_FOUND,
+  NO_CONTENT,
+  INTERNAL_SERVER_ERROR,
   getStatusText
 } = require('http-status-codes');
 
@@ -27,6 +28,8 @@ const responseToClient = async (promiss, req, res, model) => {
       } else if (response === 400) {
         const err = new Error(BAD_REQUEST);
         throw err;
+      } else if (response === 204) {
+        return res.status(NO_CONTENT).end();
       }
       if (Array.isArray(response)) {
         res.json(response.map(model.toResponse));

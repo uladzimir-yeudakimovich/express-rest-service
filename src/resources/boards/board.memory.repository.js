@@ -97,7 +97,7 @@ const deleteBoard = async id => {
   }
   const index = allBoards.findIndex(element => element.id === id);
   allBoards.splice(index, 1);
-  return allBoards;
+  return 204;
 };
 
 module.exports = { getAll, getBoard, postBoard, putBoard, deleteBoard };

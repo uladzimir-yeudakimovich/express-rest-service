@@ -1,16 +1,11 @@
-const router = require('express').Router();
+const router = require('express').Router({ mergeParams: true });
 
 const Task = require('./task.model');
 const taskService = require('./task.service');
 const { responseToClient } = require('../../helpers/errors-handling');
 
 router.route('/').get(async (req, res) => {
-  await responseToClient(
-    taskService.getAll(req.baseUrl.split('/')[2]),
-    req,
-    res,
-    Task
-  );
+  await responseToClient(taskService.getAll(req.params.id), req, res, Task);
 });
 
 router.route('/:id').get(async (req, res) => {
@@ -19,7 +14,7 @@ router.route('/:id').get(async (req, res) => {
 
 router.route('/').post(async (req, res) => {
   await responseToClient(
-    taskService.postTask(req.baseUrl.split('/')[2], req.body),
+    taskService.postTask(req.params.id, req.body),
     req,
     res,
     Task
