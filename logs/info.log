@@ -49,3 +49,7 @@
 {"level":"info","message":"    {\"url\":\"/favicon.ico\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
 {"level":"info","message":"    {\"url\":\"/\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
 {"level":"info","message":"    {\"url\":\"/kjlk\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
+{"message":"   captured error: listen EADDRINUSE: address already in use :::4000","level":"error"}
+{"level":"info","message":"    {\"url\":\"/users\",\"method\":\"GET\",\"params\":{},\"body\":{}}"}
+{"status":500,"text":"Server Error","level":"error","message":"   error"}
+{"message":"   Unhandled rejection detected: responseToClient is not defined","level":"error"}
