@@ -8,6 +8,7 @@ app.listen(PORT, () =>
 
 process.on('uncaughtException', error => {
   logger.error(`captured error: ${error.message}`);
+  process.exitCode = 1;
 });
 
 process.on('unhandledRejection', reason => {
