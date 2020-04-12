@@ -15,23 +15,23 @@ const responseToClient = async (promiss, req, res, model, next) => {
 
   promiss
     .then(response => {
-      if (Number.isInteger(response)) {
-        if (response === 204) return res.status(NO_CONTENT).end();
-        let err;
-        if (response === 404) {
-          err = new Error(NOT_FOUND);
-        } else if (response === 400) {
+      let err;
+      switch (response) {
+        case 204:
+          return res.status(NO_CONTENT).end();
+        case 400:
           err = new Error(BAD_REQUEST);
-        }
-        throw err;
+          throw err;
+        case 404:
+          err = new Error(NOT_FOUND);
+          throw err;
+        default:
+          if (Array.isArray(response)) {
+            res.json(response.map(model.toResponse));
+          } else {
+            res.json(model.toResponse(response));
+          }
       }
-
-      if (Array.isArray(response)) {
-        res.json(response.map(model.toResponse));
-      } else {
-        res.json(model.toResponse(response));
-      }
-
       next();
     })
     .catch(err => {
