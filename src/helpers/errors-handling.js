@@ -6,7 +6,7 @@ const {
   getStatusText
 } = require('http-status-codes');
 
-const { logger } = require('./logger');
+const logger = require('./logger');
 
 class Error {
   constructor(status) {
@@ -15,7 +15,7 @@ class Error {
   }
 }
 
-const responseToClient = async (promiss, req, res, model) => {
+const responseToClient = async (promiss, req, res, model, next) => {
   const { originalUrl, method, params, body } = req;
   const message = JSON.stringify({ url: originalUrl, method, params, body });
   logger.log('info', message);
@@ -31,19 +31,21 @@ const responseToClient = async (promiss, req, res, model) => {
       } else if (response === 204) {
         return res.status(NO_CONTENT).end();
       }
+
       if (Array.isArray(response)) {
         res.json(response.map(model.toResponse));
       } else {
         res.json(model.toResponse(response));
       }
+
+      next();
     })
     .catch(err => {
-      if (!err.status) {
-        err = new Error(INTERNAL_SERVER_ERROR);
-      }
+      if (!err.status) err = new Error(INTERNAL_SERVER_ERROR);
       logger.error('error', err);
       res.status(err.status).send(err.text);
+      next(err);
     });
 };
 
-module.exports = { responseToClient };
+module.exports = responseToClient;
