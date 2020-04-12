@@ -1,74 +1,24 @@
-const uuid = require('uuid');
+const Task = require('./task.model');
+const allTasks = require('../../db/tasks');
 
-const allTasks = [
-  {
-    id: '1',
-    title: 'Service',
-    order: '2',
-    description: 'REST API Service',
-    userId: '1',
-    boardId: '1',
-    columnId: '1'
-  },
-  {
-    id: '2',
-    title: 'Service',
-    order: '2',
-    description: 'REST API Service',
-    userId: '2',
-    boardId: '2',
-    columnId: '1'
-  },
-  {
-    id: '3',
-    title: 'Service',
-    order: '2',
-    description: 'REST API Service',
-    userId: '3',
-    boardId: '3',
-    columnId: '1'
-  },
-  {
-    id: '4',
-    title: 'Service',
-    order: '2',
-    description: 'REST API Service',
-    userId: '1',
-    boardId: '4',
-    columnId: '1'
-  }
-];
-
-const getAll = async boardId => {
-  return allTasks.filter(item => item.boardId === boardId);
-};
+const getAll = async id => allTasks.filter(item => item.boardId === id);
 
 const getTask = async id => {
   const task = allTasks.find(element => element.id === id);
-  if (!task) {
-    return 404;
-  }
+  if (!task) return 404;
   return task;
 };
 
 const postTask = async (boardId, task) => {
-  if (!task.title || !task.description) {
-    return 400;
-  }
-  task.id = uuid();
-  task.boardId = boardId;
-  allTasks.push(task);
-  return task;
+  const newTask = new Task(task);
+  newTask.boardId = boardId;
+  allTasks.push(newTask);
+  return newTask;
 };
 
 const putTask = async (id, task) => {
-  if (!task.title || !task.description) {
-    return 400;
-  }
   const index = allTasks.findIndex(element => element.id === id);
-  if (index < 0) {
-    return 404;
-  }
+  if (index < 0) return 404;
   task.id = id;
   allTasks[index] = task;
   return allTasks.find(element => element.id === id);
@@ -76,9 +26,7 @@ const putTask = async (id, task) => {
 
 const deleteTask = async id => {
   const taskToDelete = allTasks.find(element => element.id === id);
-  if (!taskToDelete) {
-    return 404;
-  }
+  if (!taskToDelete) return 404;
   const index = allTasks.findIndex(element => element.id === id);
   allTasks.splice(index, 1);
   return 204;
@@ -86,9 +34,7 @@ const deleteTask = async id => {
 
 const deleteTasksFromUser = async id => {
   allTasks.forEach(item => {
-    if (item.userId === id) {
-      item.userId = null;
-    }
+    if (item.userId === id) item.userId = null;
   });
 };
 

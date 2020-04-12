@@ -2,10 +2,10 @@ const uuid = require('uuid');
 const Column = require('../columns/column.model');
 
 class Board {
-  constructor({ id = uuid(), title = 'Project', columns = [] } = {}) {
+  constructor({ id = uuid(), title, columns } = {}) {
     this.id = id;
     this.title = title;
-    this.columns = Column.toResponse(columns);
+    this.columns = columns.map(column => new Column(column));
   }
 
   static toResponse(board) {

@@ -1,90 +1,23 @@
-const uuid = require('uuid');
+const Board = require('./board.model');
+const allBoards = require('../../db/boards');
 
-const allBoards = [
-  {
-    id: '1',
-    title: 'Project1',
-    columns: [
-      {
-        id: '1',
-        title: 'to-do',
-        order: '1'
-      },
-      {
-        id: '2',
-        title: 'development',
-        order: '2'
-      },
-      {
-        id: '3',
-        title: 'test',
-        order: '3'
-      },
-      {
-        id: '4',
-        title: 'done',
-        order: '4'
-      }
-    ]
-  },
-  {
-    id: '2',
-    title: 'Project2',
-    columns: [
-      {
-        id: '1',
-        title: 'to-do',
-        order: '1'
-      },
-      {
-        id: '2',
-        title: 'development',
-        order: '2'
-      },
-      {
-        id: '3',
-        title: 'test',
-        order: '3'
-      },
-      {
-        id: '4',
-        title: 'done',
-        order: '4'
-      }
-    ]
-  }
-];
-
-const getAll = async () => {
-  return allBoards;
-};
+const getAll = async () => allBoards;
 
 const getBoard = async id => {
   const board = allBoards.find(element => element.id === id);
-  if (!board) {
-    return 404;
-  }
-  console.log(board);
+  if (!board) return 404;
   return board;
 };
 
 const postBoard = async board => {
-  if (!board.title || !board.columns) {
-    return 400;
-  }
-  board.id = uuid();
-  allBoards.push(board);
-  return board;
+  const newBoard = new Board(board);
+  allBoards.push(newBoard);
+  return newBoard;
 };
 
 const putBoard = async (id, board) => {
-  if (!board.title || !board.columns) {
-    return 400;
-  }
   const index = allBoards.findIndex(element => element.id === id);
-  if (index < 0) {
-    return 404;
-  }
+  if (index < 0) return 404;
   board.id = id;
   allBoards[index] = board;
   return allBoards[index];
@@ -92,9 +25,7 @@ const putBoard = async (id, board) => {
 
 const deleteBoard = async id => {
   const boardToDelete = allBoards.find(element => element.id === id);
-  if (!boardToDelete) {
-    return 404;
-  }
+  if (!boardToDelete) return 404;
   const index = allBoards.findIndex(element => element.id === id);
   allBoards.splice(index, 1);
   return 204;
