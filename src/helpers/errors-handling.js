@@ -2,18 +2,11 @@ const {
   BAD_REQUEST,
   NOT_FOUND,
   NO_CONTENT,
-  INTERNAL_SERVER_ERROR,
-  getStatusText
+  INTERNAL_SERVER_ERROR
 } = require('http-status-codes');
 
 const logger = require('./logger');
-
-class Error {
-  constructor(status) {
-    this.status = status;
-    this.text = getStatusText(this.status);
-  }
-}
+const Error = require('./error');
 
 const responseToClient = async (promiss, req, res, model, next) => {
   const { originalUrl, method, params, body } = req;
@@ -22,14 +15,15 @@ const responseToClient = async (promiss, req, res, model, next) => {
 
   promiss
     .then(response => {
-      if (response === 404) {
-        const err = new Error(NOT_FOUND);
+      if (Number.isInteger(response)) {
+        if (response === 204) return res.status(NO_CONTENT).end();
+        let err;
+        if (response === 404) {
+          err = new Error(NOT_FOUND);
+        } else if (response === 400) {
+          err = new Error(BAD_REQUEST);
+        }
         throw err;
-      } else if (response === 400) {
-        const err = new Error(BAD_REQUEST);
-        throw err;
-      } else if (response === 204) {
-        return res.status(NO_CONTENT).end();
       }
 
       if (Array.isArray(response)) {

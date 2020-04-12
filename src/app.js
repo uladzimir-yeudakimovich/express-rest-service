@@ -3,7 +3,7 @@ const swaggerUI = require('swagger-ui-express');
 const path = require('path');
 const YAML = require('yamljs');
 
-const { logger } = require('./helpers/logger');
+const logger = require('./helpers/logger');
 const userRouter = require('./resources/users/user.router');
 const boardRouter = require('./resources/boards/board.router');
 const taskRouter = require('./resources/tasks/task.router');
