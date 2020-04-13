@@ -1,5 +1,5 @@
 const Board = require('./board.model');
-const allBoards = require('../../db/boards');
+const { allBoards } = require('../../db/db.client');
 
 const getAll = async () => allBoards;
 

@@ -1,5 +1,5 @@
 const Task = require('./task.model');
-const allTasks = require('../../db/tasks');
+const { allTasks } = require('../../db//db.client');
 
 const getAll = async id => allTasks.filter(item => item.boardId === id);
 

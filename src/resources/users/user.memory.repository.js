@@ -1,5 +1,5 @@
 const User = require('./user.model');
-const allUsers = require('../../db/users');
+const { allUsers } = require('../../db/db.client');
 
 const getAll = async () => allUsers;
 
