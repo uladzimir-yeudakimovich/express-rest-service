@@ -1,34 +1,24 @@
 const User = require('./user.model');
-const { allUsers } = require('../../db/db.client');
 
-const getAll = async () => allUsers;
+const getAll = async () => User.find({});
 
-const getUser = async id => {
-  const user = allUsers.find(element => element.id === id);
-  if (!user) return 404;
-  return user;
-};
+const getUser = async id => User.findById(id);
 
-const postUser = async user => {
-  const newUser = new User(user);
-  allUsers.push(newUser);
-  return newUser;
-};
+const addUser = async user => User.create(user);
 
-const putUser = async (id, user) => {
-  const index = allUsers.findIndex(element => element.id === id);
-  if (index < 0) return 404;
-  user.id = id;
-  allUsers[index] = user;
-  return allUsers.find(element => element.id === id);
+const updateUser = async (id, user) => {
+  const userForUpdate = User.find({ _id: id });
+  if (!(await userForUpdate).length) return 404;
+  user._id = id;
+  await User.findByIdAndUpdate(id, user);
+  return User.find({ _id: id });
 };
 
 const deleteUser = async id => {
-  const userToDelete = allUsers.find(element => element.id === id);
-  if (!userToDelete) return 404;
-  const index = allUsers.findIndex(element => element.id === id);
-  allUsers.splice(index, 1);
+  const userToDelete = User.find({ _id: id });
+  if (!(await userToDelete).length) return 404;
+  await User.findByIdAndRemove(id);
   return 204;
 };
 
-module.exports = { getAll, getUser, postUser, putUser, deleteUser };
+module.exports = { getAll, getUser, addUser, updateUser, deleteUser };

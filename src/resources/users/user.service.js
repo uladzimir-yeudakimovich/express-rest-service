@@ -8,12 +8,12 @@ const getUser = id => usersRepo.getUser(id);
 
 const postUser = user => {
   if (!user.login || !user.password) return 400;
-  return usersRepo.postUser(user);
+  return usersRepo.addUser(user);
 };
 
 const putUser = (id, user) => {
   if (!user.login || !user.password) return 400;
-  return usersRepo.putUser(id, user);
+  return usersRepo.updateUser(id, user);
 };
 
 const deleteUser = id => {
