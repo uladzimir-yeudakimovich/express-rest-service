@@ -8,12 +8,12 @@ const getBoard = id => boardRepo.getBoard(id);
 
 const postBoard = board => {
   if (!board.title || !board.columns) return 400;
-  return boardRepo.postBoard(board);
+  return boardRepo.addBoard(board);
 };
 
 const putBoard = (id, board) => {
   if (!board.title || !board.columns) return 400;
-  return boardRepo.putBoard(id, board);
+  return boardRepo.updateBoard(id, board);
 };
 
 const deleteBoard = id => {
