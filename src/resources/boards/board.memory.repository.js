@@ -1,10 +1,16 @@
 const Board = require('./board.model');
+const Column = require('../columns/column.model');
 
 const getAll = async () => Board.find({});
 
 const getBoard = async id => Board.findById(id);
 
-const addBoard = async board => Board.create(board);
+const addBoard = async board => {
+  const { columns } = board;
+  const newColumns = columns.map(column => new Column(column));
+  board.columns = newColumns;
+  return Board.create(board);
+};
 
 const updateBoard = async (id, board) => {
   const boardForUpdate = Board.find({ _id: id });

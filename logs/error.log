@@ -1,3 +1,4 @@
 {"message":"   captured error: Oops!","level":"error"}
 {"message":"   Unhandled rejection detected: Oops!","level":"error"}
 {"message":"   captured error: 500","level":"error"}
+{"message":"   Unhandled rejection detected: promiss.then is not a function","level":"error"}
