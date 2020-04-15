@@ -1,18 +1,12 @@
-const taskRepo = require('./task.memory.repository');
+const taskRepo = require('./task.controller');
 
 const getAll = boardId => taskRepo.getAll(boardId);
 
 const getTask = id => taskRepo.getTask(id);
 
-const postTask = (boardId, task) => {
-  if (!task.title || !task.description) return 400;
-  return taskRepo.addTask(boardId, task);
-};
+const postTask = (boardId, task) => taskRepo.addTask(boardId, task);
 
-const putTask = (id, task) => {
-  if (!task.title || !task.description) return 400;
-  return taskRepo.updateTask(id, task);
-};
+const putTask = (id, task) => taskRepo.updateTask(id, task);
 
 const deleteTask = id => taskRepo.deleteTask(id);
 
