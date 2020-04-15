@@ -25,6 +25,8 @@ const responseToClient = async (promiss, req, res, model, next) => {
         case 404:
           err = new Error(NOT_FOUND);
           throw err;
+        case null:
+          break;
         default:
           if (Array.isArray(response)) {
             res.json(response.map(model.toResponse));
@@ -35,8 +37,10 @@ const responseToClient = async (promiss, req, res, model, next) => {
       next();
     })
     .catch(err => {
-      if (!err.status) err = new Error(INTERNAL_SERVER_ERROR);
       logger.error('error', err);
+      if (!err.status) {
+        err = new Error(INTERNAL_SERVER_ERROR);
+      }
       res.status(err.status).send(err.text);
       next(err);
     });

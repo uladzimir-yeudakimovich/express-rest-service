@@ -16,9 +16,9 @@ const connectToDb = cb => {
 
   const db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
-  db.once('open', () => {
+  db.once('open', async () => {
     console.log('Connected to DB');
-    db.dropDatabase();
+    await db.dropDatabase();
     User.insertMany(allUsers);
     Board.insertMany(allBoards);
     Task.insertMany(allTasks);
