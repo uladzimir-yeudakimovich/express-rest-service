@@ -6,7 +6,7 @@ const allTasks = require('./tasks');
 const allUsers = require('./users');
 const User = require('../resources/users/user.model');
 const Board = require('../resources/boards/board.model');
-// const Task = require('../resources/tasks/task.model');
+const Task = require('../resources/tasks/task.model');
 
 const connectToDb = cb => {
   mongoose.connect(MONGO_CONNECTION_STRING, {
@@ -21,7 +21,7 @@ const connectToDb = cb => {
     db.dropDatabase();
     User.insertMany(allUsers);
     Board.insertMany(allBoards);
-    // Task.insertMany(allTasks);
+    Task.insertMany(allTasks);
     cb();
   });
 };

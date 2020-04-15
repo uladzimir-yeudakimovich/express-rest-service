@@ -10,29 +10,25 @@ const boardSchema = new mongoose.Schema(
       default: uuid
     },
     title: String,
-    columns: Array
+    columns: {
+      type: Array
+    }
   },
   { versionKey: false }
 );
 
-boardSchema.statics.toResponse = user => {
-  const { id, title, columns } = user;
+// boardSchema.statics.create = async board => {
+//   const { title, columns } = board;
+//   const id = uuid();
+//   const newCol = await columns.map(column => new Column(column));
+//   return { id, title, columns: newCol };
+// };
+
+boardSchema.statics.toResponse = board => {
+  const { id, title, columns } = board;
   return { id, title, columns };
 };
 
 const Board = mongoose.model('Board', boardSchema);
-
-// class Board {
-//   constructor({ id = uuid(), title, columns } = {}) {
-//     this.id = id;
-//     this.title = title;
-//     this.columns = columns.map(column => new Column(column));
-//   }
-
-//   static toResponse(board) {
-//     const { id, title, columns } = board;
-//     return { id, title, columns };
-//   }
-// }
 
 module.exports = Board;

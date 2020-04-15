@@ -6,12 +6,12 @@ const getTask = id => taskRepo.getTask(id);
 
 const postTask = (boardId, task) => {
   if (!task.title || !task.description) return 400;
-  return taskRepo.postTask(boardId, task);
+  return taskRepo.addTask(boardId, task);
 };
 
 const putTask = (id, task) => {
   if (!task.title || !task.description) return 400;
-  return taskRepo.putTask(id, task);
+  return taskRepo.updateTask(id, task);
 };
 
 const deleteTask = id => taskRepo.deleteTask(id);

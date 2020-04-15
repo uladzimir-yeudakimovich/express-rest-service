@@ -1,57 +1,42 @@
 const Task = require('./task.model');
-const { allTasks } = require('../../db//db.client');
 
-const getAll = async id => allTasks.filter(item => item.boardId === id);
+const getAll = async id => Task.find({ boardId: id });
 
-const getTask = async id => {
-  const task = allTasks.find(element => element.id === id);
-  if (!task) return 404;
-  return task;
+const getTask = async id => Task.findById(id);
+
+const addTask = async (boardId, task) => {
+  task.boardId = boardId;
+  return Task.create(task);
 };
 
-const postTask = async (boardId, task) => {
-  const newTask = new Task(task);
-  newTask.boardId = boardId;
-  allTasks.push(newTask);
-  return newTask;
-};
-
-const putTask = async (id, task) => {
-  const index = allTasks.findIndex(element => element.id === id);
-  if (index < 0) return 404;
-  task.id = id;
-  allTasks[index] = task;
-  return allTasks.find(element => element.id === id);
+const updateTask = async (id, task) => {
+  const taskForUpdate = Task.find({ _id: id });
+  if (!(await taskForUpdate).length) return 404;
+  task._id = id;
+  await Task.findByIdAndUpdate(id, task);
+  return Task.find({ _id: id });
 };
 
 const deleteTask = async id => {
-  const taskToDelete = allTasks.find(element => element.id === id);
-  if (!taskToDelete) return 404;
-  const index = allTasks.findIndex(element => element.id === id);
-  allTasks.splice(index, 1);
+  const taskForDelete = Task.find({ _id: id });
+  if (!(await taskForDelete).length) return 404;
+  await Task.findByIdAndDelete(id);
   return 204;
 };
 
 const deleteTasksFromUser = async id => {
-  allTasks.forEach(item => {
-    if (item.userId === id) item.userId = null;
-  });
+  await Task.updateMany({ userId: id }, { userId: null });
 };
 
 const deleteTasksFromBoard = async id => {
-  for (let i = 0; i < allTasks.length; i++) {
-    if (allTasks[i].boardId === id) {
-      allTasks.splice(i, 1);
-      i--;
-    }
-  }
+  await Task.deleteMany({ boardId: id });
 };
 
 module.exports = {
   getAll,
   getTask,
-  postTask,
-  putTask,
+  addTask,
+  updateTask,
   deleteTask,
   deleteTasksFromUser,
   deleteTasksFromBoard

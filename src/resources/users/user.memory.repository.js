@@ -17,7 +17,7 @@ const updateUser = async (id, user) => {
 const deleteUser = async id => {
   const userForDelete = User.find({ _id: id });
   if (!(await userForDelete).length) return 404;
-  await User.findByIdAndRemove(id);
+  await User.findByIdAndDelete(id);
   return 204;
 };
 
