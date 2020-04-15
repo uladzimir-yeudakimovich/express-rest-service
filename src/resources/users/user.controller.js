@@ -1,10 +1,10 @@
 const User = require('./user.model');
 
-const getAll = () => User.find({});
+const getAll = async () => User.find({});
 
-const getUser = id => User.findById(id);
+const getUser = async id => User.findById(id);
 
-const addUser = user => {
+const addUser = async user => {
   if (!user.login || !user.password) return 400;
   return User.create(user);
 };

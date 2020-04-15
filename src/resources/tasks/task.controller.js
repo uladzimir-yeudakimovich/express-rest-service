@@ -1,10 +1,10 @@
 const Task = require('./task.model');
 
-const getAll = id => Task.find({ boardId: id });
+const getAll = async id => Task.find({ boardId: id });
 
-const getTask = id => Task.findById(id);
+const getTask = async id => Task.findById(id);
 
-const addTask = (boardId, task) => {
+const addTask = async (boardId, task) => {
   if (!task.title || !task.description) return 400;
   task.boardId = boardId;
   return Task.create(task);

@@ -16,4 +16,4 @@ const connectToDb = callback => {
   });
 };
 
-module.exports = { connectToDb };
+module.exports = connectToDb;
