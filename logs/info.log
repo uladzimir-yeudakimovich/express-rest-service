@@ -74,3 +74,5 @@
 {"message":"   captured error: Oops!","level":"error"}
 {"message":"   Unhandled rejection detected: Oops!","level":"error"}
 {"message":"   captured error: 500","level":"error"}
+{"level":"info","message":"    {\"url\":\"/users\",\"method\":\"POST\",\"params\":{},\"body\":{\"name\":\"string\",\"password\":\"string\"}}"}
+{"status":400,"text":"Bad Request","level":"info","message":"    info"}
