@@ -12,14 +12,14 @@ const addUser = async user => {
 const updateUser = async (id, user) => {
   if (!user.login || !user.password) return 400;
   const userForUpdate = User.find({ _id: id });
-  if (!(await userForUpdate).length) return 404;
+  if (!(await userForUpdate).length) return;
   await User.findByIdAndUpdate(id, user);
   return User.find({ _id: id });
 };
 
 const deleteUser = async id => {
   const userForDelete = User.find({ _id: id });
-  if (!(await userForDelete).length) return 404;
+  if (!(await userForDelete).length) return;
   await User.findByIdAndDelete(id);
   return 204;
 };

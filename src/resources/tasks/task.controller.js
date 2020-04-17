@@ -13,14 +13,14 @@ const addTask = async (boardId, task) => {
 const updateTask = async (id, task) => {
   if (!task.title || !task.description) return 400;
   const taskForUpdate = Task.find({ _id: id });
-  if (!(await taskForUpdate).length) return 404;
+  if (!(await taskForUpdate).length) return;
   await Task.findByIdAndUpdate(id, task);
   return Task.find({ _id: id });
 };
 
 const deleteTask = async id => {
   const taskForDelete = Task.find({ _id: id });
-  if (!(await taskForDelete).length) return 404;
+  if (!(await taskForDelete).length) return;
   await Task.findByIdAndDelete(id);
   return 204;
 };

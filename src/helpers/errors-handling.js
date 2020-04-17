@@ -22,9 +22,6 @@ const responseToClient = async (promiss, req, res, model, next) => {
         case 400:
           err = new Error(BAD_REQUEST);
           throw err;
-        case 404:
-          err = new Error(NOT_FOUND);
-          throw err;
         case null:
           err = new Error(NOT_FOUND);
           throw err;
