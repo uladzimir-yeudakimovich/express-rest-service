@@ -3,10 +3,7 @@ const mongoose = require('mongoose');
 
 const columnSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      default: uuid
-    },
+    _id: { type: String, default: uuid },
     title: String,
     order: Number
   },

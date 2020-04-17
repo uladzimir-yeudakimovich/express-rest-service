@@ -3,10 +3,7 @@ const mongoose = require('mongoose');
 
 const boardSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      default: uuid
-    },
+    _id: { type: String, default: uuid },
     title: String,
     postedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'Column' },
     columns: [
