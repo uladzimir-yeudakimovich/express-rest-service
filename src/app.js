@@ -7,21 +7,21 @@ const logger = require('./helpers/logger');
 const userRouter = require('./resources/users/user.router');
 const boardRouter = require('./resources/boards/board.router');
 const taskRouter = require('./resources/tasks/task.router');
+const errorHandler = require('./helpers/errors-handling');
 
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
 
 app.use(express.json());
-
 app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
+app.use((req, res, done) => {
+  const { url, method, params, body } = req;
+  logger.info(JSON.stringify({ url, method, params, body }));
+  done();
+});
+
 app.use('/', (req, res, next) => {
-  const route = req.url.split('/')[1];
-  if (route !== 'users' && route !== 'boards') {
-    const { url, method, params, body } = req;
-    const message = JSON.stringify({ url, method, params, body });
-    logger.log('info', message);
-  }
   if (req.originalUrl === '/') {
     res.send('Service is running!');
     return;
@@ -30,9 +30,9 @@ app.use('/', (req, res, next) => {
 });
 
 app.use('/users', userRouter);
-
 app.use('/boards', boardRouter);
-
 app.use('/boards/:id/tasks', taskRouter);
+
+app.use(errorHandler);
 
 module.exports = app;
