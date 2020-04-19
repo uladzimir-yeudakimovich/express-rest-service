@@ -2,7 +2,7 @@ const router = require('express').Router({ mergeParams: true });
 
 const Task = require('./task.model');
 const taskService = require('./task.service');
-const responseToClient = require('../../helpers/errors-handling');
+const responseToClient = require('../../helpers/response-to-client');
 
 router.route('/').get(async (req, res, next) => {
   const { id } = req.params;

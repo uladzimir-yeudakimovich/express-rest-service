@@ -1,4 +1,4 @@
-const boardRepo = require('./board.memory.repository');
+const boardRepo = require('./board.controller');
 
 const { deleteTasksFromBoard } = require('../tasks/task.service');
 
@@ -6,15 +6,9 @@ const getAll = () => boardRepo.getAll();
 
 const getBoard = id => boardRepo.getBoard(id);
 
-const postBoard = board => {
-  if (!board.title || !board.columns) return 400;
-  return boardRepo.postBoard(board);
-};
+const postBoard = board => boardRepo.addBoard(board);
 
-const putBoard = (id, board) => {
-  if (!board.title || !board.columns) return 400;
-  return boardRepo.putBoard(id, board);
-};
+const putBoard = (id, board) => boardRepo.updateBoard(id, board);
 
 const deleteBoard = id => {
   deleteTasksFromBoard(id);

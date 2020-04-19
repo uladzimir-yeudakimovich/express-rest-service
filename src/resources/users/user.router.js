@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const User = require('./user.model');
 const usersService = require('./user.service');
-const responseToClient = require('../../helpers/errors-handling');
+const responseToClient = require('../../helpers/response-to-client');
 
 router.route('/').get(async (req, res, next) => {
   await responseToClient(usersService.getAll(), req, res, User, next);
