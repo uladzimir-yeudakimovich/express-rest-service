@@ -24,4 +24,15 @@ const logger = createLogger({
   ]
 });
 
-module.exports = logger;
+const logRequest = async (req, res, done) => {
+  const { url, method, params, body } = req;
+  logger.info(JSON.stringify({ url, method, params, body }));
+  done();
+};
+
+const logErrors = async (err, req, res, next) => {
+  logger.error(err.stack);
+  next(err);
+};
+
+module.exports = { logger, logRequest, logErrors };

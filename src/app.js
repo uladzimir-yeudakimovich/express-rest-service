@@ -3,11 +3,14 @@ const swaggerUI = require('swagger-ui-express');
 const path = require('path');
 const YAML = require('yamljs');
 
-const logger = require('./helpers/logger');
+const { logRequest, logErrors } = require('./helpers/logger');
 const userRouter = require('./resources/users/user.router');
 const boardRouter = require('./resources/boards/board.router');
 const taskRouter = require('./resources/tasks/task.router');
-const errorHandler = require('./helpers/errors-handling');
+const {
+  clientErrorHandler,
+  errorHandler
+} = require('./helpers/errors-handling');
 
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
@@ -15,11 +18,7 @@ const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
 app.use(express.json());
 app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
-app.use((req, res, done) => {
-  const { url, method, params, body } = req;
-  logger.info(JSON.stringify({ url, method, params, body }));
-  done();
-});
+app.use(logRequest);
 
 app.use('/', (req, res, next) => {
   if (req.originalUrl === '/') {
@@ -33,6 +32,8 @@ app.use('/users', userRouter);
 app.use('/boards', boardRouter);
 app.use('/boards/:id/tasks', taskRouter);
 
+app.use(logErrors);
+app.use(clientErrorHandler);
 app.use(errorHandler);
 
 module.exports = app;
