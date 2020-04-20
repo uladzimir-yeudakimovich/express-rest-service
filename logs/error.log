@@ -1,2 +1,10 @@
-{"message":"   captured error: Oops!","level":"error"}
-{"message":"   Unhandled rejection detected: Oops!","level":"error"}
+{
+  message: 'captured error: Error uncaughtException',
+  level: 'error',
+  timestamp: '2020-04-20 23:04:23'
+}
+{
+  message: 'Unhandled rejection detected: Error unhandledRejection',
+  level: 'error',
+  timestamp: '2020-04-20 23:04:38'
+}
