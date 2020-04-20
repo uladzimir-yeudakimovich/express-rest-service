@@ -1,4 +1,11 @@
 const { createLogger, format, transports } = require('winston');
+const path = require('path');
+
+const myFormat = format.combine(
+  format.timestamp({ format: 'YYYY-MM-DD HH:MM:SS' }),
+  format.uncolorize(),
+  format.prettyPrint()
+);
 
 const logger = createLogger({
   level: 'silly',
@@ -7,32 +14,20 @@ const logger = createLogger({
       format: format.combine(format.colorize(), format.cli())
     }),
     new transports.File({
-      filename: 'logs/error.log',
+      filename: path.join(__dirname, '..', '..', 'logs', 'error.log'),
       level: 'error',
-      format: format.combine(
-        format.timestamp({ format: 'YYYY-MM-DD HH:MM:SS' }),
-        format.uncolorize(),
-        format.prettyPrint()
-      )
+      format: myFormat
     }),
     new transports.File({
-      filename: 'logs/info.log',
+      filename: path.join(__dirname, '..', '..', 'logs', 'info.log'),
       level: 'info',
-      format: format.combine(
-        format.timestamp({ format: 'YYYY-MM-DD HH:MM:SS' }),
-        format.uncolorize(),
-        format.prettyPrint()
-      )
+      format: myFormat
     })
   ],
   exceptionHandlers: [
     new transports.File({
-      filename: 'logs/exceptions.log',
-      format: format.combine(
-        format.timestamp({ format: 'YYYY-MM-DD HH:MM:SS' }),
-        format.uncolorize(),
-        format.prettyPrint()
-      )
+      filename: path.join(__dirname, '..', '..', 'logs', 'exceptions.log'),
+      format: myFormat
     })
   ]
 });
