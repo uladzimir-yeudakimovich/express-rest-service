@@ -25,8 +25,14 @@ userSchema.pre('save', async function save(next) {
   }
 });
 
-userSchema.methods.validatePassword = async function validatePassword(data) {
-  return bcrypt.compare(data, this.password);
+userSchema.methods.validatePassword = async function validatePassword(
+  data,
+  callback
+) {
+  bcrypt.compare(data, this.password, (error, result) => {
+    if (error) throw error;
+    callback(result);
+  });
 };
 
 userSchema.statics.toResponse = user => {

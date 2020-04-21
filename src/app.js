@@ -7,6 +7,8 @@ const { logRequest, logErrors } = require('./helpers/logger');
 const userRouter = require('./resources/users/user.router');
 const boardRouter = require('./resources/boards/board.router');
 const taskRouter = require('./resources/tasks/task.router');
+const loginRouter = require('./resources/login/login.router');
+
 const {
   clientErrorHandler,
   errorHandler
@@ -31,6 +33,7 @@ app.use('/', (req, res, next) => {
 app.use('/users', userRouter);
 app.use('/boards', boardRouter);
 app.use('/boards/:id/tasks', taskRouter);
+app.use('/login', loginRouter);
 
 app.use(logErrors);
 app.use(clientErrorHandler);
