@@ -8,12 +8,13 @@ router.route('/').post(async (req, res) => {
   if (!body.login || !body.password) {
     return res.status(HttpStatus.BAD_REQUEST).end();
   }
-  const auth = await loginService.loginUser(body, result => {
+  const auth = await loginService.loginUser(body, (result, token) => {
     if (result) {
-      res
-        .status(HttpStatus.OK)
-        .send('Successful login')
-        .end();
+      res.json({
+        status: HttpStatus.OK,
+        message: 'Successful login',
+        token
+      });
     } else {
       res
         .status(HttpStatus.FORBIDDEN)

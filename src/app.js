@@ -14,6 +14,8 @@ const {
   errorHandler
 } = require('./helpers/errors-handling');
 
+const checkToken = require('./helpers/check-token');
+
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
 
@@ -30,9 +32,9 @@ app.use('/', (req, res, next) => {
   next();
 });
 
-app.use('/users', userRouter);
-app.use('/boards', boardRouter);
-app.use('/boards/:id/tasks', taskRouter);
+app.use('/users', checkToken, userRouter);
+app.use('/boards', checkToken, boardRouter);
+app.use('/boards/:id/tasks', checkToken, taskRouter);
 app.use('/login', loginRouter);
 
 app.use(logErrors);
