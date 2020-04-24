@@ -3,7 +3,7 @@ const HttpStatus = require('http-status-codes');
 
 const Board = require('./board.model');
 const boardService = require('./board.service');
-const responseToClient = require('../../helpers/response-to-client');
+const responseToClient = require('../../middleware/response-to-client');
 
 router.route('/').get(async (req, res, next) => {
   await responseToClient(boardService.getAll(), req, res, Board, next);

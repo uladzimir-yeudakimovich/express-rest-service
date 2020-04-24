@@ -3,7 +3,7 @@ const swaggerUI = require('swagger-ui-express');
 const path = require('path');
 const YAML = require('yamljs');
 
-const { logRequest, logErrors } = require('./helpers/logger');
+const { logRequest, logErrors } = require('./middleware/logger');
 const userRouter = require('./resources/users/user.router');
 const boardRouter = require('./resources/boards/board.router');
 const taskRouter = require('./resources/tasks/task.router');
@@ -12,9 +12,9 @@ const loginRouter = require('./resources/login/login.router');
 const {
   clientErrorHandler,
   errorHandler
-} = require('./helpers/errors-handling');
+} = require('./middleware/errors-handling');
 
-const checkToken = require('./helpers/check-token');
+const checkToken = require('./middleware/auth');
 
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));

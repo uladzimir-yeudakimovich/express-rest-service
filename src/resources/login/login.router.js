@@ -8,8 +8,8 @@ router.route('/').post(async (req, res) => {
   if (!body.login || !body.password) {
     return res.status(HttpStatus.BAD_REQUEST).end();
   }
-  const auth = await loginService.loginUser(body, (result, token) => {
-    if (result) {
+  const auth = await loginService.loginUser(body, token => {
+    if (token) {
       res.json({
         status: HttpStatus.OK,
         message: 'Successful login',
