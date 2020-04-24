@@ -18,13 +18,10 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.pre('save', async function save(next) {
-  if (!this.isModified('password')) return next();
-  try {
+  if (this.isModified('password')) {
     this.password = await bcrypt.hash(this.password, saltRounds);
-    return next();
-  } catch (err) {
-    return next(err);
   }
+  next();
 });
 
 userSchema.methods.generateAuthToken = async () => {
