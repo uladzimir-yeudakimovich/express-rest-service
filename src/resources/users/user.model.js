@@ -27,19 +27,17 @@ userSchema.pre('save', async function save(next) {
   }
 });
 
-userSchema.methods.generateAuthToken = async function generateAuthToken(
-  data,
-  callback
-) {
-  const { id, login, password } = this;
-  bcrypt.compare(data, password, (error, result) => {
-    if (error) throw error;
-    let token;
-    if (result) {
-      token = jwt.sign({ id, login }, JWT_SECRET_KEY, { expiresIn: '1h' });
-    }
-    callback(token);
-  });
+userSchema.methods.generateAuthToken = async () => {
+  const { id, login } = this;
+  return jwt.sign({ id, login }, JWT_SECRET_KEY, { expiresIn: '1h' });
+};
+
+userSchema.statics.findByCredentials = async (login, password) => {
+  const user = await User.findOne({ login });
+  if (!user) return 403;
+  const isPasswordMatch = await bcrypt.compare(password, user.password);
+  if (!isPasswordMatch) return 403;
+  return user;
 };
 
 userSchema.statics.toResponse = user => {

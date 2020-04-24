@@ -8,25 +8,18 @@ router.route('/').post(async (req, res) => {
   if (!body.login || !body.password) {
     return res.status(HttpStatus.BAD_REQUEST).end();
   }
-  const auth = await loginService.loginUser(body, token => {
-    if (token) {
-      res.json({
-        status: HttpStatus.OK,
-        message: 'Successful login',
-        token
-      });
-    } else {
-      res
-        .status(HttpStatus.FORBIDDEN)
-        .send('Incorrect login or password')
-        .end();
-    }
-  });
-  if (auth === 403) {
+  const token = await loginService.loginUser(body);
+  if (token === 403 || !token) {
     res
       .status(HttpStatus.FORBIDDEN)
       .send('Incorrect login or password')
       .end();
+  } else {
+    res.json({
+      status: HttpStatus.OK,
+      message: 'Successful login',
+      token
+    });
   }
 });
 
