@@ -24,6 +24,10 @@ userSchema.pre('save', async function save(next) {
   next();
 });
 
+userSchema.pre('findOneAndUpdate', async function update() {
+  this._update.password = await bcrypt.hash(this._update.password, saltRounds);
+});
+
 userSchema.methods.generateAuthToken = async () => {
   const { id, login } = this;
   return jwt.sign({ id, login }, JWT_SECRET_KEY, { expiresIn: '1h' });

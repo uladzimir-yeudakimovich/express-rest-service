@@ -13,6 +13,11 @@ const addUser = async user => {
 const updateUser = async (id, user) => {
   const userForUpdate = User.find({ _id: id });
   if (!(await userForUpdate).length) return;
+  const checkUserForUpdate = User.find({ _id: id, login: user.login });
+  const checkUserLogin = User.find({ login: user.login });
+  if (!(await checkUserForUpdate).length && (await checkUserLogin).length) {
+    return 409;
+  }
   await User.findByIdAndUpdate(id, user);
   return User.find({ _id: id });
 };
