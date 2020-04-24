@@ -5,6 +5,7 @@ const { MONGO_CONNECTION_STRING } = require('../common/config');
 const connectToDb = callback => {
   mongoose.connect(MONGO_CONNECTION_STRING, {
     useNewUrlParser: true,
+    useCreateIndex: true,
     useUnifiedTopology: true
   });
 

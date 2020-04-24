@@ -4,7 +4,11 @@ const getAll = async () => User.find({});
 
 const getUser = async id => User.findById(id);
 
-const addUser = async user => User.create(user);
+const addUser = async user => {
+  const userForSave = User.find({ login: user.login });
+  if ((await userForSave).length) return 409;
+  return User.create(user);
+};
 
 const updateUser = async (id, user) => {
   const userForUpdate = User.find({ _id: id });
