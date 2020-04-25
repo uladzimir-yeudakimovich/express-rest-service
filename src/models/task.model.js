@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 const taskSchema = new mongoose.Schema(
   {
     _id: { type: String, default: uuid },
-    title: String,
+    title: { type: String, required: true },
     order: Number,
-    description: String,
+    description: { type: String, required: true },
     userId: String,
     boardId: String,
     columnId: String

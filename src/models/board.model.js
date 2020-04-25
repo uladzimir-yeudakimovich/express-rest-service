@@ -4,11 +4,14 @@ const mongoose = require('mongoose');
 const boardSchema = new mongoose.Schema(
   {
     _id: { type: String, default: uuid },
-    title: String,
+    title: { type: String, required: true },
     postedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'Column' },
-    columns: [
-      { title: String, order: Number, by: mongoose.Schema.Types.ObjectId }
-    ]
+    columns: {
+      type: [
+        { title: String, order: Number, by: mongoose.Schema.Types.ObjectId }
+      ],
+      required: true
+    }
   },
   { versionKey: false }
 );

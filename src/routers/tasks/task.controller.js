@@ -1,17 +1,15 @@
-const Task = require('./task.model');
+const Task = require('../../models/task.model');
 
 const getAll = async id => Task.find({ boardId: id });
 
 const getTask = async id => Task.findById(id);
 
 const addTask = async (boardId, task) => {
-  if (!task.title || !task.description) return 400;
   task.boardId = boardId;
   return Task.create(task);
 };
 
 const updateTask = async (id, task) => {
-  if (!task.title || !task.description) return 400;
   const taskForUpdate = Task.find({ _id: id });
   if (!(await taskForUpdate).length) return;
   await Task.findByIdAndUpdate(id, task);
