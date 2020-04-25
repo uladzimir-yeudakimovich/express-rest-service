@@ -3,11 +3,10 @@ const responseStatus = require('./response-status');
 const responseToClient = async (promiss, req, res, model, next) => {
   promiss
     .then(response => {
+      if (!response) return responseStatus(res, 'NOT_FOUND');
       switch (response) {
         case 204:
           return responseStatus(res, 'NO_CONTENT');
-        case null:
-          return responseStatus(res, 'NOT_FOUND');
         case 409:
           return responseStatus(res, 'CONFLICT');
         default:

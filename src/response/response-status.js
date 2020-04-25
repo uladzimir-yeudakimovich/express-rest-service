@@ -13,13 +13,14 @@ const responseStatus = (res, code) => {
   } else {
     text = code;
   }
-  logger.info(`status: ${HttpStatus[code]}, text: ${text}`);
   if (text === code) {
-    return res
+    res
       .status(HttpStatus[code])
       .send(HttpStatus.getStatusText(HttpStatus[code]));
+  } else {
+    res.status(HttpStatus[code]).send(text);
   }
-  return res.status(HttpStatus[code]).send(text);
+  logger.info(`status: ${HttpStatus[code]}, text: ${text}`);
 };
 
 module.exports = responseStatus;
