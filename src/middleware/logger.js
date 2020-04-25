@@ -49,4 +49,4 @@ const logErrors = async (err, req, res, next) => {
   next();
 };
 
-module.exports = { logRequest, logErrors };
+module.exports = { logger, logRequest, logErrors };
