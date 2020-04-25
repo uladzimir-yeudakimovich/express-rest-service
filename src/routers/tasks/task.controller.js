@@ -1,4 +1,4 @@
-const Task = require('./task.model');
+const Task = require('../../models/task.model');
 
 const getAll = async id => Task.find({ boardId: id });
 

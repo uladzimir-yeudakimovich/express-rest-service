@@ -1,4 +1,4 @@
-const User = require('../users/user.model');
+const User = require('../../models/user.model');
 
 const loginUser = async body => {
   const { login, password } = body;

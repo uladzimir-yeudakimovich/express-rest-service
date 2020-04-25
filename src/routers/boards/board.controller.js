@@ -1,4 +1,4 @@
-const Board = require('./board.model');
+const Board = require('../../models/board.model');
 
 const getAll = async () => Board.find({});
 

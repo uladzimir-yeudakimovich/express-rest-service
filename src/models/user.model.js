@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const { JWT_SECRET_KEY } = require('../../common/config.js');
+const { JWT_SECRET_KEY } = require('../common/config.js');
 
 const saltRounds = 10;
 
@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema(
     _id: { type: String, default: uuid },
     name: { type: String, required: true, trim: true },
     login: { type: String, required: true, trim: true, unique: true },
-    password: { type: String, required: true, minLength: 5 }
+    password: { type: String, required: true }
   },
   { versionKey: false }
 );

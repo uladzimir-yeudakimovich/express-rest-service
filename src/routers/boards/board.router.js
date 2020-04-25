@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const HttpStatus = require('http-status-codes');
 
-const Board = require('./board.model');
+const Board = require('../../models/board.model');
 const boardService = require('./board.service');
 const responseToClient = require('../../middleware/response-to-client');
 

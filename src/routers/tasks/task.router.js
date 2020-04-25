@@ -1,7 +1,7 @@
 const router = require('express').Router({ mergeParams: true });
 const HttpStatus = require('http-status-codes');
 
-const Task = require('./task.model');
+const Task = require('../../models/task.model');
 const taskService = require('./task.service');
 const responseToClient = require('../../middleware/response-to-client');
 

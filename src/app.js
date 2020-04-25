@@ -4,17 +4,17 @@ const path = require('path');
 const YAML = require('yamljs');
 
 const { logRequest, logErrors } = require('./middleware/logger');
-const userRouter = require('./resources/users/user.router');
-const boardRouter = require('./resources/boards/board.router');
-const taskRouter = require('./resources/tasks/task.router');
-const loginRouter = require('./resources/login/login.router');
+const userRouter = require('./routers/users/user.router');
+const boardRouter = require('./routers/boards/board.router');
+const taskRouter = require('./routers/tasks/task.router');
+const loginRouter = require('./routers/login/login.router');
 
 const {
   clientErrorHandler,
   errorHandler
 } = require('./middleware/errors-handling');
 
-const checkToken = require('./middleware/auth');
+const checkToken = require('./middleware/check-token');
 
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
