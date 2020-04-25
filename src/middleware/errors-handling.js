@@ -1,11 +1,9 @@
-const HttpStatus = require('http-status-codes');
+const responseStatus = require('../response/response-status');
 
 const errorHandler = async (err, req, res, next) => {
   if (err) {
     if (err.status) return res.status(err.status).send(err.message);
-    return res
-      .status(HttpStatus.INTERNAL_SERVER_ERROR)
-      .send(HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR));
+    return responseStatus(res, 'INTERNAL_SERVER_ERROR');
   }
   next();
 };

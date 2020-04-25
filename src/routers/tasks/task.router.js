@@ -3,7 +3,7 @@ const HttpStatus = require('http-status-codes');
 
 const Task = require('../../models/task.model');
 const taskService = require('./task.service');
-const responseToClient = require('../../middleware/response-to-client');
+const responseToClient = require('../../response/response-to-client');
 
 router.route('/').get(async (req, res, next) => {
   const { id } = req.params;
