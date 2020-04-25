@@ -27,9 +27,11 @@ const logger = createLogger({
   exceptionHandlers: [
     new transports.File({
       filename: path.join(__dirname, '..', '..', 'logs', 'exceptions.log'),
+      level: 'error',
       format: myFormat
     })
-  ]
+  ],
+  exitOnError: true
 });
 
 const logRequest = async (req, res, next) => {
@@ -43,8 +45,8 @@ const logRequest = async (req, res, next) => {
 };
 
 const logErrors = async (err, req, res, next) => {
-  logger.error(err.stack);
-  next(err);
+  if (err) logger.error(err.stack);
+  next();
 };
 
-module.exports = { logger, logRequest, logErrors };
+module.exports = { logRequest, logErrors };

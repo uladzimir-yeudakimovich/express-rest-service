@@ -1,360 +1,425 @@
 {
-  message: 'url: /boards, method: POST, params: {}, body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}',
+  message: 'url: /boards/12345/tasks, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:35'
+  timestamp: '2020-04-25 20:04:14'
 }
 {
   message: 'url: /users, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:39'
-}
-{
-  message: 'url: /boards, method: POST, params: {}, body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:41'
+  timestamp: '2020-04-25 20:04:16'
 }
 {
   message: 'url: /boards, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:98'
+  timestamp: '2020-04-25 20:04:17'
 }
 {
-  message: 'url: /boards/467b5114-6bdc-489b-ad18-1deb53bec4e7/tasks, method: POST, params: {}, body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}',
+  message: 'url: /boards/12345/tasks/12345, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:99'
+  timestamp: '2020-04-25 20:04:18'
+}
+{
+  message: 'url: /users/123, method: GET, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:19'
+}
+{
+  message: 'url: /boards/12345/tasks, method: POST, params: {}, body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:24'
+}
+{
+  message: 'url: /boards/12345, method: GET, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:25'
 }
 {
   message: 'url: /users, method: POST, params: {}, body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:100'
+  timestamp: '2020-04-25 20:04:25'
 }
 {
-  message: 'url: /users/aa86cf0a-ef41-4269-8efd-b2b3ebbcd088, method: GET, params: {}, body: {}',
+  message: 'url: /boards/12345/tasks/12345, method: PUT, params: {}, body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:08'
+  timestamp: '2020-04-25 20:04:27'
+}
+{
+  message: 'url: /boards, method: POST, params: {}, body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:28'
+}
+{
+  message: 'url: /users/12345, method: PUT, params: {}, body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:28'
+}
+{
+  message: 'url: /boards/12345/tasks/12345, method: DELETE, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:28'
+}
+{
+  message: 'url: /login, method: POST, params: {}, body: {"login":"admin","password":"admin"}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:29'
+}
+{
+  message: 'url: /boards/12345, method: PUT, params: {}, body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:31'
+}
+{
+  message: 'url: /login, method: POST, params: {}, body: {"login":"admin","password":"admin"}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:31'
+}
+{
+  message: 'url: /users/12345, method: DELETE, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:32'
+}
+{
+  message: 'url: /login, method: POST, params: {}, body: {"login":"admin","password":"admin"}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:32'
+}
+{
+  message: 'url: /boards/12345, method: DELETE, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:33'
+}
+{
+  message: 'url: /boards, method: POST, params: {}, body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:56'
+}
+{
+  message: 'url: /boards, method: POST, params: {}, body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:61'
+}
+{
+  message: 'url: /users, method: GET, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:66'
+}
+{
+  message: 'url: /boards/8fccdccd-70ca-4388-a997-358b31fee245/tasks, method: POST, params: {}, body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:96'
 }
 {
   message: 'url: /boards, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:09'
-}
-{
-  message: 'url: /boards/467b5114-6bdc-489b-ad18-1deb53bec4e7/tasks, method: GET, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:10'
-}
-{
-  message: 'url: /boards/556eb612-b65c-4d91-9d00-8a5c2c1bf5f9, method: GET, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:18'
-}
-{
-  message: 'url: /users/aa86cf0a-ef41-4269-8efd-b2b3ebbcd088, method: DELETE, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:19'
-}
-{
-  message: 'url: /boards/467b5114-6bdc-489b-ad18-1deb53bec4e7/tasks, method: GET, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:20'
-}
-{
-  message: 'url: /boards, method: POST, params: {}, body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:27'
-}
-{
-  message: 'url: /boards/467b5114-6bdc-489b-ad18-1deb53bec4e7/tasks/0cf862f4-bc51-43a6-9075-d466e010f445, method: GET, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:32'
-}
-{
-  message: 'url: /boards/fed56833-75b0-4278-a586-2cfc271b67d4, method: DELETE, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:36'
+  timestamp: '2020-04-25 20:04:06'
 }
 {
   message: 'url: /users, method: POST, params: {}, body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:41'
+  timestamp: '2020-04-25 20:04:16'
 }
 {
-  message: 'url: /boards/467b5114-6bdc-489b-ad18-1deb53bec4e7/tasks, method: POST, params: {}, body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}',
+  message: 'url: /boards/8fccdccd-70ca-4388-a997-358b31fee245/tasks, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:43'
+  timestamp: '2020-04-25 20:04:24'
 }
 {
-  message: 'url: /users/2fc3b360-351c-4bdf-8201-3a3e6d8fe4b4, method: DELETE, params: {}, body: {}',
+  message: 'url: /boards, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:54'
+  timestamp: '2020-04-25 20:04:32'
 }
 {
-  message: 'url: /boards/467b5114-6bdc-489b-ad18-1deb53bec4e7/tasks/19715a72-9751-4aa5-bae7-283a6eb3597c, method: DELETE, params: {}, body: {}',
+  message: 'url: /boards/bfcc5072-5df9-4055-b809-d298d9eb80b8, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:56'
+  timestamp: '2020-04-25 20:04:59'
 }
 {
-  message: 'url: /boards, method: POST, params: {}, body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}',
+  message: 'url: /users/f8d578a8-68c8-4635-8e88-a73e9c9193fa, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:56'
+  timestamp: '2020-04-25 20:04:66'
+}
+{
+  message: 'url: /boards/8fccdccd-70ca-4388-a997-358b31fee245/tasks, method: GET, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:72'
+}
+{
+  message: 'url: /users/f8d578a8-68c8-4635-8e88-a73e9c9193fa, method: DELETE, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:74'
+}
+{
+  message: 'url: /boards/8fccdccd-70ca-4388-a997-358b31fee245/tasks/3491bb98-f664-4205-8f24-9cb82f3f8df2, method: GET, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:79'
+}
+{
+  message: 'url: /boards/8fccdccd-70ca-4388-a997-358b31fee245/tasks, method: POST, params: {}, body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:97'
 }
 {
   message: 'url: /users, method: POST, params: {}, body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:70'
-}
-{
-  message: 'url: /boards/345c62f4-7f9e-48dd-80fa-a9d5faae0b29, method: PUT, params: {}, body: {"id":"345c62f4-7f9e-48dd-80fa-a9d5faae0b29","title":"Autotest updated board","columns":[{"_id":"5e9e079374db8528b9df5253","title":"Backlog","order":1},{"_id":"5e9e079374db8528b9df5254","title":"Sprint","order":2}]}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:71'
-}
-{
-  message: 'url: /boards/467b5114-6bdc-489b-ad18-1deb53bec4e7/tasks, method: POST, params: {}, body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:72'
-}
-{
-  message: 'url: /users/94f43294-1b26-4b7b-b10d-b2c879610793, method: PUT, params: {}, body: {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd","id":"94f43294-1b26-4b7b-b10d-b2c879610793"}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:80'
-}
-{
-  message: 'url: /boards/467b5114-6bdc-489b-ad18-1deb53bec4e7/tasks/bf82cdc5-61a1-4cf8-a1f0-62a899856acc, method: PUT, params: {}, body: {"id":"bf82cdc5-61a1-4cf8-a1f0-62a899856acc","title":"Autotest updated task","order":0,"description":"Lorem ipsum","userId":null,"boardId":"467b5114-6bdc-489b-ad18-1deb53bec4e7","columnId":null}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:80'
-}
-{
-  message: 'url: /boards/345c62f4-7f9e-48dd-80fa-a9d5faae0b29, method: GET, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:95'
-}
-{
-  message: 'url: /users/94f43294-1b26-4b7b-b10d-b2c879610793, method: GET, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:02'
-}
-{
-  message: 'url: /boards/345c62f4-7f9e-48dd-80fa-a9d5faae0b29, method: DELETE, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:02'
-}
-{
-  message: 'url: /boards/467b5114-6bdc-489b-ad18-1deb53bec4e7/tasks/bf82cdc5-61a1-4cf8-a1f0-62a899856acc, method: GET, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:04'
-}
-{
-  message: 'url: /users/94f43294-1b26-4b7b-b10d-b2c879610793, method: DELETE, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:09'
-}
-{
-  message: 'url: /boards/467b5114-6bdc-489b-ad18-1deb53bec4e7/tasks/0cf862f4-bc51-43a6-9075-d466e010f445, method: GET, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:11'
+  timestamp: '2020-04-25 20:04:99'
 }
 {
   message: 'url: /boards, method: POST, params: {}, body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:18'
+  timestamp: '2020-04-25 20:04:00'
 }
 {
-  message: 'url: /boards/467b5114-6bdc-489b-ad18-1deb53bec4e7/tasks/0cf862f4-bc51-43a6-9075-d466e010f445, method: DELETE, params: {}, body: {}',
+  message: 'url: /boards/8fccdccd-70ca-4388-a997-358b31fee245/tasks/fffb02f0-55f6-4a24-86e4-0c7a74dad1d1, method: DELETE, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:19'
+  timestamp: '2020-04-25 20:04:06'
+}
+{
+  message: 'url: /boards/655a3a58-f976-4c55-9333-ba669b0044f3, method: DELETE, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:10'
+}
+{
+  message: 'url: /boards, method: POST, params: {}, body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:33'
+}
+{
+  message: 'url: /users/1a433f4c-b04f-443a-bb09-bceb90ca415e, method: DELETE, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:42'
+}
+{
+  message: 'url: /boards/235e5d75-48cf-4542-966c-63cdbc17bebf, method: PUT, params: {}, body: {"id":"235e5d75-48cf-4542-966c-63cdbc17bebf","title":"Autotest updated board","columns":[{"_id":"5ea47609eddf14c19ad3bfd8","title":"Backlog","order":1},{"_id":"5ea47609eddf14c19ad3bfd9","title":"Sprint","order":2}]}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:43'
+}
+{
+  message: 'url: /boards/8fccdccd-70ca-4388-a997-358b31fee245/tasks, method: POST, params: {}, body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:55'
 }
 {
   message: 'url: /users, method: POST, params: {}, body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:25'
+  timestamp: '2020-04-25 20:04:57'
 }
 {
-  message: 'url: /boards/a41d8eae-e56b-47c4-a426-b8d3758effad, method: DELETE, params: {}, body: {}',
+  message: 'url: /boards/8fccdccd-70ca-4388-a997-358b31fee245/tasks/3b21d54d-b161-4fb3-b780-d31dfad8741f, method: PUT, params: {}, body: {"id":"3b21d54d-b161-4fb3-b780-d31dfad8741f","title":"Autotest updated task","order":0,"description":"Lorem ipsum","userId":null,"boardId":"8fccdccd-70ca-4388-a997-358b31fee245","columnId":null}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:27'
+  timestamp: '2020-04-25 20:04:63'
 }
 {
-  message: 'url: /boards/467b5114-6bdc-489b-ad18-1deb53bec4e7/tasks/0cf862f4-bc51-43a6-9075-d466e010f445, method: GET, params: {}, body: {}',
+  message: 'url: /boards/8fccdccd-70ca-4388-a997-358b31fee245/tasks/3b21d54d-b161-4fb3-b780-d31dfad8741f, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:34'
+  timestamp: '2020-04-25 20:04:86'
 }
 {
-  message: 'url: /users/b2cf975f-972a-4fce-ba30-1e4f59f27bc5, method: DELETE, params: {}, body: {}',
+  message: 'url: /boards/8fccdccd-70ca-4388-a997-358b31fee245/tasks/3491bb98-f664-4205-8f24-9cb82f3f8df2, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:34'
+  timestamp: '2020-04-25 20:04:94'
 }
 {
-  message: 'url: /boards/467b5114-6bdc-489b-ad18-1deb53bec4e7, method: DELETE, params: {}, body: {}',
+  message: 'url: /boards/8fccdccd-70ca-4388-a997-358b31fee245/tasks/3491bb98-f664-4205-8f24-9cb82f3f8df2, method: DELETE, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:42'
+  timestamp: '2020-04-25 20:04:00'
 }
 {
-  message: 'url: /boards/a41d8eae-e56b-47c4-a426-b8d3758effad, method: GET, params: {}, body: {}',
+  message: 'url: /boards/8fccdccd-70ca-4388-a997-358b31fee245/tasks/3491bb98-f664-4205-8f24-9cb82f3f8df2, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:44'
+  timestamp: '2020-04-25 20:04:15'
+}
+{
+  message: 'url: /users/3506efae-fdc3-476f-9499-a371c0d0f0ba, method: PUT, params: {}, body: {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd","id":"3506efae-fdc3-476f-9499-a371c0d0f0ba"}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:17'
+}
+{
+  message: 'url: /users/3506efae-fdc3-476f-9499-a371c0d0f0ba, method: GET, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:60'
+}
+{
+  message: 'url: /users/3506efae-fdc3-476f-9499-a371c0d0f0ba, method: DELETE, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:67'
 }
 {
   message: 'url: /users, method: POST, params: {}, body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:50'
+  timestamp: '2020-04-25 20:04:82'
+}
+{
+  message: 'url: /boards/8fccdccd-70ca-4388-a997-358b31fee245, method: DELETE, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:34'
+}
+{
+  message: 'url: /users/320047f5-ad82-4b07-874b-60b758690624, method: DELETE, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:43'
+}
+{
+  message: 'url: /users, method: POST, params: {}, body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:58'
 }
 {
   message: 'url: /boards, method: POST, params: {}, body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:53'
+  timestamp: '2020-04-25 20:04:88'
+}
+{
+  message: 'url: /boards/8faa6515-7769-4651-94e9-0a0965ced1a5/tasks, method: POST, params: {}, body: {"title":"Task #1","order":1,"description":"Lorem ipsum","userId":"b00c9c19-e631-42da-9580-7d2324f5b2f7","boardId":"8faa6515-7769-4651-94e9-0a0965ced1a5"}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:96'
+}
+{
+  message: 'url: /boards/8faa6515-7769-4651-94e9-0a0965ced1a5/tasks, method: POST, params: {}, body: {"title":"Task #2","order":2,"description":"Lorem ipsum","userId":"b00c9c19-e631-42da-9580-7d2324f5b2f7","boardId":"8faa6515-7769-4651-94e9-0a0965ced1a5"}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:97'
+}
+{
+  message: 'url: /boards/235e5d75-48cf-4542-966c-63cdbc17bebf, method: GET, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:98'
+}
+{
+  message: 'url: /users/b00c9c19-e631-42da-9580-7d2324f5b2f7, method: DELETE, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:05'
+}
+{
+  message: 'url: /boards/235e5d75-48cf-4542-966c-63cdbc17bebf, method: DELETE, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:06'
+}
+{
+  message: 'url: /boards/8faa6515-7769-4651-94e9-0a0965ced1a5/tasks/a5d4242b-8b6a-440d-ba48-2348394316c4, method: GET, params: {}, body: {}',
+  level: 'info',
+  timestamp: '2020-04-25 20:04:21'
 }
 {
   message: 'url: /boards, method: POST, params: {}, body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:58'
+  timestamp: '2020-04-25 20:04:22'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks, method: POST, params: {}, body: {"title":"Task #1","order":1,"description":"Lorem ipsum","boardId":"8e646224-9ed9-4001-874f-fee755a9700c","userId":null,"columnId":null}',
+  message: 'url: /boards/8faa6515-7769-4651-94e9-0a0965ced1a5/tasks/a568f49e-ec47-443f-b517-46440bf7bdb5, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:62'
+  timestamp: '2020-04-25 20:04:28'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks, method: POST, params: {}, body: {"title":"Task #2","order":2,"description":"Lorem ipsum","boardId":"8e646224-9ed9-4001-874f-fee755a9700c","userId":null,"columnId":null}',
+  message: 'url: /boards/cad7c89c-5acb-4cc2-9483-6d62db7db62f, method: DELETE, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:63'
+  timestamp: '2020-04-25 20:04:30'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks, method: POST, params: {}, body: {"title":"Task #3","order":3,"description":"Lorem ipsum","boardId":"8e646224-9ed9-4001-874f-fee755a9700c","userId":null,"columnId":null}',
+  message: 'url: /boards/8faa6515-7769-4651-94e9-0a0965ced1a5/tasks/a568f49e-ec47-443f-b517-46440bf7bdb5, method: DELETE, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:63'
+  timestamp: '2020-04-25 20:04:35'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks, method: POST, params: {}, body: {"title":"Task #4","order":4,"description":"Lorem ipsum","boardId":"8e646224-9ed9-4001-874f-fee755a9700c","userId":null,"columnId":null}',
+  message: 'url: /boards/8faa6515-7769-4651-94e9-0a0965ced1a5/tasks/a5d4242b-8b6a-440d-ba48-2348394316c4, method: DELETE, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:64'
+  timestamp: '2020-04-25 20:04:35'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks, method: POST, params: {}, body: {"title":"Task #5","order":5,"description":"Lorem ipsum","boardId":"8e646224-9ed9-4001-874f-fee755a9700c","userId":null,"columnId":null}',
+  message: 'url: /boards/cad7c89c-5acb-4cc2-9483-6d62db7db62f, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:65'
+  timestamp: '2020-04-25 20:04:45'
 }
 {
-  message: 'url: /boards/766eab09-9304-4e64-8920-8f489ae8d0ee/tasks, method: POST, params: {}, body: {"title":"Task #1","order":1,"description":"Lorem ipsum","userId":"68256a97-67ad-4e52-86f1-66df159a1718","boardId":"766eab09-9304-4e64-8920-8f489ae8d0ee"}',
+  message: 'url: /boards/8faa6515-7769-4651-94e9-0a0965ced1a5, method: DELETE, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:67'
+  timestamp: '2020-04-25 20:04:49'
 }
 {
-  message: 'url: /boards/766eab09-9304-4e64-8920-8f489ae8d0ee/tasks, method: POST, params: {}, body: {"title":"Task #2","order":2,"description":"Lorem ipsum","userId":"68256a97-67ad-4e52-86f1-66df159a1718","boardId":"766eab09-9304-4e64-8920-8f489ae8d0ee"}',
+  message: 'url: /boards, method: POST, params: {}, body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:67'
+  timestamp: '2020-04-25 20:04:52'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks/c68d00cf-f7d7-4500-83e0-5e53edcc2659, method: GET, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks, method: POST, params: {}, body: {"title":"Task #1","order":1,"description":"Lorem ipsum","boardId":"2eef5ad9-86db-40dd-b79d-a12f698bccaa","userId":null,"columnId":null}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:74'
+  timestamp: '2020-04-25 20:04:60'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks/b9125405-5d1f-48bf-ba33-2a15b24a31c3, method: GET, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks, method: POST, params: {}, body: {"title":"Task #2","order":2,"description":"Lorem ipsum","boardId":"2eef5ad9-86db-40dd-b79d-a12f698bccaa","userId":null,"columnId":null}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:74'
+  timestamp: '2020-04-25 20:04:61'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks/c4f8b528-b806-4cc7-9847-aa918c1e9d1a, method: GET, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks, method: POST, params: {}, body: {"title":"Task #3","order":3,"description":"Lorem ipsum","boardId":"2eef5ad9-86db-40dd-b79d-a12f698bccaa","userId":null,"columnId":null}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:74'
+  timestamp: '2020-04-25 20:04:62'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks/bd559d68-8a84-47fe-8537-49338399e6c3, method: GET, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks, method: POST, params: {}, body: {"title":"Task #4","order":4,"description":"Lorem ipsum","boardId":"2eef5ad9-86db-40dd-b79d-a12f698bccaa","userId":null,"columnId":null}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:75'
+  timestamp: '2020-04-25 20:04:62'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks/4b1a4314-b003-40fa-9195-57bcdfa1414f, method: GET, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks, method: POST, params: {}, body: {"title":"Task #5","order":5,"description":"Lorem ipsum","boardId":"2eef5ad9-86db-40dd-b79d-a12f698bccaa","userId":null,"columnId":null}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:78'
+  timestamp: '2020-04-25 20:04:63'
 }
 {
-  message: 'url: /users/68256a97-67ad-4e52-86f1-66df159a1718, method: DELETE, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks/fb5be172-e4d3-46d8-8eab-861bcdc0c108, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:79'
+  timestamp: '2020-04-25 20:04:73'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c, method: DELETE, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks/efd383be-ba3d-4065-91e2-34e3ea53f22a, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:86'
+  timestamp: '2020-04-25 20:04:74'
 }
 {
-  message: 'url: /boards/766eab09-9304-4e64-8920-8f489ae8d0ee/tasks/dca5dc29-8f1d-4778-8090-bc8caa63d969, method: GET, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks/f1e145e2-88d8-4672-9b5e-f7453cc4f26b, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:96'
+  timestamp: '2020-04-25 20:04:74'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks/c68d00cf-f7d7-4500-83e0-5e53edcc2659, method: GET, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks/711d1137-180d-4377-9acc-7f89ee155510, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:02'
+  timestamp: '2020-04-25 20:04:75'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks/b9125405-5d1f-48bf-ba33-2a15b24a31c3, method: GET, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks/84e12769-3c61-427a-b6fb-8019842a4c93, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:02'
+  timestamp: '2020-04-25 20:04:75'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks/c4f8b528-b806-4cc7-9847-aa918c1e9d1a, method: GET, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa, method: DELETE, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:03'
+  timestamp: '2020-04-25 20:04:83'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks/bd559d68-8a84-47fe-8537-49338399e6c3, method: GET, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks/fb5be172-e4d3-46d8-8eab-861bcdc0c108, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:03'
+  timestamp: '2020-04-25 20:04:97'
 }
 {
-  message: 'url: /boards/8e646224-9ed9-4001-874f-fee755a9700c/tasks/4b1a4314-b003-40fa-9195-57bcdfa1414f, method: GET, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks/efd383be-ba3d-4065-91e2-34e3ea53f22a, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:03'
+  timestamp: '2020-04-25 20:04:98'
 }
 {
-  message: 'url: /boards/766eab09-9304-4e64-8920-8f489ae8d0ee/tasks/313e10f3-6e85-49ee-825e-519b07f98a02, method: GET, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks/f1e145e2-88d8-4672-9b5e-f7453cc4f26b, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:04'
+  timestamp: '2020-04-25 20:04:98'
 }
 {
-  message: 'url: /boards/f28f6d65-3bf9-4cc0-a711-51c51a53055b, method: DELETE, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks/711d1137-180d-4377-9acc-7f89ee155510, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:11'
+  timestamp: '2020-04-25 20:04:99'
 }
 {
-  message: 'url: /boards/766eab09-9304-4e64-8920-8f489ae8d0ee/tasks/dca5dc29-8f1d-4778-8090-bc8caa63d969, method: DELETE, params: {}, body: {}',
+  message: 'url: /boards/2eef5ad9-86db-40dd-b79d-a12f698bccaa/tasks/84e12769-3c61-427a-b6fb-8019842a4c93, method: GET, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:16'
+  timestamp: '2020-04-25 20:04:99'
 }
 {
-  message: 'url: /boards/766eab09-9304-4e64-8920-8f489ae8d0ee/tasks/313e10f3-6e85-49ee-825e-519b07f98a02, method: DELETE, params: {}, body: {}',
+  message: 'url: /boards/251c4a27-6d23-4024-a1c6-3cd46f2c66bc, method: DELETE, params: {}, body: {}',
   level: 'info',
-  timestamp: '2020-04-20 23:04:16'
-}
-{
-  message: 'url: /boards/766eab09-9304-4e64-8920-8f489ae8d0ee, method: DELETE, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:32'
-}
-{
-  message: 'captured error: Error uncaughtException',
-  level: 'error',
-  timestamp: '2020-04-20 23:04:23'
-}
-{
-  message: 'Unhandled rejection detected: Error unhandledRejection',
-  level: 'error',
-  timestamp: '2020-04-20 23:04:39'
-}
-{
-  message: 'url: /, method: GET, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:82'
-}
-{
-  message: 'url: /favicon.ico, method: GET, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:27'
-}
-{
-  message: 'url: /someurl, method: GET, params: {}, body: {}',
-  level: 'info',
-  timestamp: '2020-04-20 23:04:70'
+  timestamp: '2020-04-25 20:04:07'
 }

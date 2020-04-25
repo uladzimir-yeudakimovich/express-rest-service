@@ -1,17 +1,13 @@
 const HttpStatus = require('http-status-codes');
 
-const clientErrorHandler = async (err, req, res, next) => {
-  if (req.xhr) {
+const errorHandler = async (err, req, res, next) => {
+  if (err) {
+    if (err.status) return res.status(err.status).send(err.message);
     return res
       .status(HttpStatus.INTERNAL_SERVER_ERROR)
-      .send({ error: 'Something failed!' });
+      .send(HttpStatus.getStatusText(HttpStatus.INTERNAL_SERVER_ERROR));
   }
-  next(err);
+  next();
 };
 
-const errorHandler = async (err, req, res, next) => {
-  res.status(HttpStatus.INTERNAL_SERVER_ERROR).send('Something broke!');
-  next(err);
-};
-
-module.exports = { clientErrorHandler, errorHandler };
+module.exports = errorHandler;

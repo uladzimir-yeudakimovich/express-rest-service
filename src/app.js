@@ -9,10 +9,7 @@ const boardRouter = require('./routers/boards/board.router');
 const taskRouter = require('./routers/tasks/task.router');
 const loginRouter = require('./routers/login/login.router');
 
-const {
-  clientErrorHandler,
-  errorHandler
-} = require('./middleware/errors-handling');
+const errorHandler = require('./middleware/errors-handling');
 
 const checkToken = require('./middleware/check-token');
 
@@ -38,7 +35,6 @@ app.use('/boards/:id/tasks', checkToken, taskRouter);
 app.use('/login', loginRouter);
 
 app.use(logErrors);
-app.use(clientErrorHandler);
 app.use(errorHandler);
 
 module.exports = app;
