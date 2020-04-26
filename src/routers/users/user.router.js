@@ -18,7 +18,7 @@ router.route('/').post(async (req, res, next) => {
   const { body } = req;
   const { name, login, password } = body;
   if (!name || !login || !password) return responseStatus(res, 'BAD_REQUEST');
-  await responseToClient(usersService.postUser(body), req, res, User, next);
+  await responseToClient(usersService.addUser(body), req, res, User, next);
 });
 
 router.route('/:id').put(async (req, res, next) => {
@@ -26,7 +26,7 @@ router.route('/:id').put(async (req, res, next) => {
   const { body } = req;
   const { name, login, password } = body;
   if (!name || !login || !password) return responseStatus(res, 'BAD_REQUEST');
-  await responseToClient(usersService.putUser(id, body), req, res, User, next);
+  await responseToClient(usersService.editUser(id, body), req, res, User, next);
 });
 
 router.route('/:id').delete(async (req, res, next) => {

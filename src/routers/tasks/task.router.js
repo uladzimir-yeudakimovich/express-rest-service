@@ -20,7 +20,7 @@ router.route('/').post(async (req, res, next) => {
   const { body } = req;
   const { title, description } = body;
   if (!title || !description) return responseStatus(res, 'BAD_REQUEST');
-  await responseToClient(taskService.postTask(id, body), req, res, Task, next);
+  await responseToClient(taskService.addTask(id, body), req, res, Task, next);
 });
 
 router.route('/:id').put(async (req, res, next) => {
@@ -28,7 +28,7 @@ router.route('/:id').put(async (req, res, next) => {
   const { body } = req;
   const { title, description } = body;
   if (!title || !description) return responseStatus(res, 'BAD_REQUEST');
-  await responseToClient(taskService.putTask(id, body), req, res, Task, next);
+  await responseToClient(taskService.editTask(id, body), req, res, Task, next);
 });
 
 router.route('/:id').delete(async (req, res, next) => {

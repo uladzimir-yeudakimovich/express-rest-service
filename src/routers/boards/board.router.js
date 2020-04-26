@@ -18,7 +18,7 @@ router.route('/').post(async (req, res, next) => {
   const { body } = req;
   const { title, columns } = body;
   if (!title || !columns) return responseStatus(res, 'BAD_REQUEST');
-  await responseToClient(boardService.postBoard(body), req, res, Board, next);
+  await responseToClient(boardService.addBoard(body), req, res, Board, next);
 });
 
 router.route('/:id').put(async (req, res, next) => {
@@ -27,7 +27,7 @@ router.route('/:id').put(async (req, res, next) => {
   const { title, columns } = body;
   if (!title || !columns) return responseStatus(res, 'BAD_REQUEST');
   await responseToClient(
-    boardService.putBoard(id, body),
+    boardService.editBoard(id, body),
     req,
     res,
     Board,
