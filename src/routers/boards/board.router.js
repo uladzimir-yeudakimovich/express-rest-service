@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const HttpStatus = require('http-status-codes');
 
 const Board = require('../../models/board.model');
 const boardService = require('./board.service');
+const responseStatus = require('../../response/response-status');
 const responseToClient = require('../../response/response-to-client');
 
 router.route('/').get(async (req, res, next) => {
@@ -16,18 +16,16 @@ router.route('/:id').get(async (req, res, next) => {
 
 router.route('/').post(async (req, res, next) => {
   const { body } = req;
-  if (!body.title || !body.columns) {
-    return res.status(HttpStatus.BAD_REQUEST).end();
-  }
+  const { title, columns } = body;
+  if (!title || !columns) return responseStatus(res, 'BAD_REQUEST');
   await responseToClient(boardService.postBoard(body), req, res, Board, next);
 });
 
 router.route('/:id').put(async (req, res, next) => {
   const { id } = req.params;
   const { body } = req;
-  if (!body.title || !body.columns) {
-    return res.status(HttpStatus.BAD_REQUEST).end();
-  }
+  const { title, columns } = body;
+  if (!title || !columns) return responseStatus(res, 'BAD_REQUEST');
   await responseToClient(
     boardService.putBoard(id, body),
     req,
