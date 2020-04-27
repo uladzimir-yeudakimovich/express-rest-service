@@ -1,17 +1,16 @@
-const mongoose = require('mongoose');
+const { connect, connection } = require('mongoose');
 
 const { MONGO_CONNECTION_STRING } = require('../common/config');
 
 const connectToDb = callback => {
-  mongoose.connect(MONGO_CONNECTION_STRING, {
+  connect(MONGO_CONNECTION_STRING, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
   });
 
-  const db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'connection error:'));
-  db.once('open', () => {
+  connection.on('error', console.error.bind(console, 'connection error:'));
+  connection.once('open', () => {
     console.log('Connected to DB');
     callback();
   });

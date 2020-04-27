@@ -1,7 +1,7 @@
-const dotenv = require('dotenv');
+const { config } = require('dotenv');
 const path = require('path');
 
-dotenv.config({
+config({
   path: path.join(__dirname, '../../.env')
 });
 

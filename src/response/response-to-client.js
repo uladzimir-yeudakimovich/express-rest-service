@@ -12,11 +12,11 @@ const responseToClient = async (promiss, req, res, model, next) => {
         return responseStatus(res, 'NO_CONTENT', deleteName);
       }
       if (response === 409) return responseStatus(res, 'CONFLICT');
-      if (Array.isArray(response)) {
-        res.json(response.map(model.toResponse));
-      } else {
-        res.json(model.toResponse(response));
-      }
+      res.json(
+        Array.isArray(response)
+          ? response.map(model.toResponse)
+          : model.toResponse(response)
+      );
     })
     .catch(next);
 };
