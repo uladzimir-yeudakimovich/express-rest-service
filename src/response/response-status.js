@@ -8,14 +8,10 @@ const responseStatus = (res, code) => {
     FORBIDDEN: 'Incorrect login or password',
     NO_CONTENT: 'Has been deleted'
   };
-  if (text[code]) {
-    res.status(HttpStatus[code]).send(text[code]);
-  } else {
-    res
-      .status(HttpStatus[code])
-      .send(HttpStatus.getStatusText(HttpStatus[code]));
-  }
-  logger.info(`status: ${HttpStatus[code]}, text: ${text[code] || code}`);
+  const statusCode = HttpStatus[code];
+  const statusText = text[code] || HttpStatus.getStatusText(statusCode);
+  res.status(statusCode).send(statusText);
+  logger.info(`status: ${statusCode}, text: ${statusText}`);
 };
 
 module.exports = responseStatus;
