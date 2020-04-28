@@ -1,9 +1,6 @@
 const uuid = require('uuid');
 const { Schema, model } = require('mongoose');
 const { hash, compare } = require('bcrypt');
-const { sign } = require('jsonwebtoken');
-
-const { JWT_SECRET_KEY } = require('../common/config.js');
 
 const saltRounds = 10;
 
@@ -27,11 +24,6 @@ userSchema.pre('save', async function save(next) {
 userSchema.pre('findOneAndUpdate', async function update() {
   this._update.password = await hash(this._update.password, saltRounds);
 });
-
-userSchema.methods.generateAuthToken = async () => {
-  const { id, login } = this;
-  return sign({ id, login }, JWT_SECRET_KEY, { expiresIn: '1h' });
-};
 
 userSchema.statics.findByCredentials = async (login, password) => {
   const user = await User.findOne({ login });
