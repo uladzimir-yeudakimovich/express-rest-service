@@ -18,7 +18,9 @@ const responseToClient = async (promiss, req, res, model, next) => {
           : model.toResponse(response)
       );
     })
-    .catch(next);
+    .catch(error => {
+      return next(error);
+    });
 };
 
 module.exports = responseToClient;

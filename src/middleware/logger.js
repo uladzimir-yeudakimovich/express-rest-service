@@ -46,7 +46,7 @@ const logRequest = async (req, res, next) => {
 
 const logErrors = async (err, req, res, next) => {
   if (err) logger.error(err.stack);
-  next();
+  next(err);
 };
 
 module.exports = { logger, logRequest, logErrors };
