@@ -7,7 +7,7 @@ const loginUser = async (login, password) => {
   const user = await User.findByCredentials(login, password);
   if (user === 403) return 403;
   const { id } = user;
-  return sign({ id, login }, JWT_SECRET_KEY, { expiresIn: '1h' });
+  return sign({ id, login }, JWT_SECRET_KEY, { expiresIn: '30m' });
 };
 
 module.exports = { loginUser };
