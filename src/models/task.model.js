@@ -1,7 +1,7 @@
 const uuid = require('uuid');
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const taskSchema = new mongoose.Schema(
+const taskSchema = new Schema(
   {
     _id: { type: String, default: uuid },
     title: { type: String, required: true },
@@ -19,6 +19,6 @@ taskSchema.statics.toResponse = task => {
   return { id, title, order, description, userId, boardId, columnId };
 };
 
-const Task = mongoose.model('Task', taskSchema);
+const Task = model('Task', taskSchema);
 
 module.exports = Task;

@@ -1,6 +1,6 @@
 const express = require('express');
-const swaggerUI = require('swagger-ui-express');
-const path = require('path');
+const { serve, setup } = require('swagger-ui-express');
+const { join } = require('path');
 const YAML = require('yamljs');
 
 const { logRequest, logErrors } = require('./middleware/logger');
@@ -12,10 +12,10 @@ const taskRouter = require('./routers/tasks/task.router');
 const errorHandler = require('./middleware/errors-handling');
 
 const app = express();
-const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
+const swaggerDocument = YAML.load(join(__dirname, '../doc/api.yaml'));
 
 app.use(express.json());
-app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+app.use('/doc', serve, setup(swaggerDocument));
 app.use(logRequest);
 
 app.use('/', (req, res, next) => {

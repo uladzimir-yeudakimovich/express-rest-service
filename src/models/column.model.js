@@ -1,7 +1,7 @@
 const uuid = require('uuid');
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const columnSchema = new mongoose.Schema(
+const columnSchema = new Schema(
   {
     _id: { type: String, default: uuid },
     title: String,
@@ -15,6 +15,6 @@ columnSchema.statics.toResponse = column => {
   return { id, title, order };
 };
 
-const Column = mongoose.model('Column', columnSchema);
+const Column = model('Column', columnSchema);
 
 module.exports = Column;

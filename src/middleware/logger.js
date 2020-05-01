@@ -1,5 +1,5 @@
 const { createLogger, format, transports } = require('winston');
-const path = require('path');
+const { join } = require('path');
 
 const myFormat = format.combine(
   format.timestamp({ format: 'YYYY-MM-DD HH:MM:SS' }),
@@ -14,19 +14,19 @@ const logger = createLogger({
       format: format.combine(format.colorize(), format.cli())
     }),
     new transports.File({
-      filename: path.join(__dirname, '..', '..', 'logs', 'error.log'),
+      filename: join(__dirname, '..', '..', 'logs', 'error.log'),
       level: 'error',
       format: myFormat
     }),
     new transports.File({
-      filename: path.join(__dirname, '..', '..', 'logs', 'info.log'),
+      filename: join(__dirname, '..', '..', 'logs', 'info.log'),
       level: 'info',
       format: myFormat
     })
   ],
   exceptionHandlers: [
     new transports.File({
-      filename: path.join(__dirname, '..', '..', 'logs', 'exceptions.log'),
+      filename: join(__dirname, '..', '..', 'logs', 'exceptions.log'),
       level: 'error',
       format: myFormat
     })
@@ -46,7 +46,7 @@ const logRequest = async (req, res, next) => {
 
 const logErrors = async (err, req, res, next) => {
   if (err) logger.error(err.stack);
-  next();
+  next(err);
 };
 
 module.exports = { logger, logRequest, logErrors };
